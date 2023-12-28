@@ -160,6 +160,11 @@ int main (int argc, char *argv[])
   for(int i = 0; i < 25; ++i)
   {
     Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
+    if(mob==0)
+    {
+      std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
+      return 1;
+    }
     double x = mob->GetPosition().x;
     double y = mob->GetPosition().y;
     double z = mob->GetPosition().z;
