@@ -1,16 +1,16 @@
-# project ns (3-dev) configured on Fri Jun 30 16:06:28 2023 by
-# waf 1.8.19 (abi 98, python 20712f0 on linux2)
+# project ns (3-dev) configured on Thu Dec 28 14:58:57 2023 by
+# waf 1.8.19 (abi 98, python 20711f0 on linux2)
 # using ./waf configure --disable-examples --disable-tests
 #
 ----------------------------------------
 Setting top to
-/home/blue/EDBTMA/IEEE-802.11ah-ns-3
+/home/jonathan/IEEE802.11ah-ns3-Busytone
 ----------------------------------------
 Setting out to
-/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build
+/home/jonathan/IEEE802.11ah-ns3-Busytone/build
 ----------------------------------------
 Checking for 'gcc' (C compiler)
-find program=['gcc', 'cc'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='CC' -> ['/usr/bin/gcc']
+find program=['gcc', 'cc'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CC' -> ['/usr/bin/gcc']
 ['/usr/bin/gcc', '-dM', '-E', '-']
 out: #define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
@@ -136,6 +136,7 @@ out: #define __SSP_STRONG__ 3
 #define __ATOMIC_HLE_RELEASE 131072
 #define __PTRDIFF_MAX__ 0x7fffffffffffffffL
 #define __amd64 1
+#define __STDC_NO_THREADS__ 1
 #define __ATOMIC_HLE_ACQUIRE 65536
 #define __FLT32_HAS_QUIET_NAN__ 1
 #define __LONG_LONG_MAX__ 0x7fffffffffffffffLL
@@ -359,14 +360,14 @@ out: #define __SSP_STRONG__ 3
 #define __ATOMIC_ACQ_REL 4
 #define __ATOMIC_RELEASE 3
 
-find program=['ar'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='AR' -> ['/usr/bin/ar']
+find program=['ar'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='AR' -> ['/usr/bin/ar']
 /usr/bin/gcc
 ----------------------------------------
 Checking for cc version
 7.5.0
 ----------------------------------------
 Checking for 'g++' (C++ compiler)
-find program=['g++', 'c++'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='CXX' -> ['/usr/bin/g++']
+find program=['g++', 'c++'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='CXX' -> ['/usr/bin/g++']
 ['/usr/bin/g++', '-dM', '-E', '-']
 out: #define __SSP_STRONG__ 3
 #define __DBL_MIN_EXP__ (-1021)
@@ -492,6 +493,7 @@ out: #define __SSP_STRONG__ 3
 #define __ATOMIC_HLE_RELEASE 131072
 #define __PTRDIFF_MAX__ 0x7fffffffffffffffL
 #define __amd64 1
+#define __STDC_NO_THREADS__ 1
 #define __ATOMIC_HLE_ACQUIRE 65536
 #define __FLT32_HAS_QUIET_NAN__ 1
 #define __LONG_LONG_MAX__ 0x7fffffffffffffffLL
@@ -722,14 +724,14 @@ Checking for compilation flag -Wl,--soname=foo support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_60513e964d023cfdb825792be66e6a08/test.cpp[0m
+[1/1] Compiling [32mbuild/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-Wl,--soname=foo', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_60513e964d023cfdb825792be66e6a08/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-Wl,--soname=foo', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/testbuild/test.cpp.1.o']
 ok
 ------------------------------------------------------
 Checking for program 'python'
 /usr/bin/python
-find program=['python'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='PYTHON' -> ['/usr/bin/python']
+find program=['python'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='PYTHON' -> ['/usr/bin/python']
 ['/usr/bin/python', '-c', 'import imp;print(imp.get_tag())']
 err: Traceback (most recent call last):
   File "<string>", line 1, in <module>
@@ -738,7 +740,7 @@ AttributeError: 'module' object has no attribute 'get_tag'
 ['/usr/bin/python', '-c', 'import sys\nfor x in sys.version_info: print(str(x))']
 out: 2
 7
-18
+17
 final
 0
 
@@ -754,7 +756,7 @@ out: '/usr/local/lib/python2.7/dist-packages'
 
 ------------------------------------------------------
 Checking for python version
-(2, 7, 18, 'final', 0)
+(2, 7, 17, 'final', 0)
 ['/usr/bin/python', '-c', "from distutils.sysconfig import get_config_var, get_python_lib\n\nprint(repr(get_config_var('prefix') or ''))\nprint(repr(get_config_var('SO') or ''))\nprint(repr(get_config_var('LDFLAGS') or ''))\nprint(repr(get_config_var('LIBDIR') or ''))\nprint(repr(get_config_var('LIBPL') or ''))\nprint(repr(get_config_var('INCLUDEPY') or ''))\nprint(repr(get_config_var('Py_ENABLE_SHARED') or ''))\nprint(repr(get_config_var('MACOSX_DEPLOYMENT_TARGET') or ''))\nprint(repr(get_config_var('LDSHARED') or ''))\nprint(repr(get_config_var('CFLAGS') or ''))\nprint(repr(get_config_var('LDVERSION') or ''))"]
 out: '/usr'
 '.so'
@@ -764,8 +766,8 @@ out: '/usr'
 '/usr/include/python2.7'
 1
 ''
-'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
-'-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
+'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
+'-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
 ''
 
 '/usr'
@@ -776,8 +778,8 @@ out: '/usr'
 '/usr/include/python2.7'
 1
 ''
-'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
-'-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
+'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
+'-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
 ''
 
 Configuration returned from ['/usr/bin/python']:
@@ -789,18 +791,18 @@ LIBPL = '/usr/lib/python2.7/config-x86_64-linux-gnu'
 INCLUDEPY = '/usr/include/python2.7'
 Py_ENABLE_SHARED = 1
 MACOSX_DEPLOYMENT_TARGET = ''
-LDSHARED = 'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
-CFLAGS = '-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  '
+LDSHARED = 'x86_64-linux-gnu-gcc -pthread -shared -Wl,-O1 -Wl,-Bsymbolic-functions -Wl,-Bsymbolic-functions -Wl,-z,relro -fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
+CFLAGS = '-fno-strict-aliasing -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  '
 LDVERSION = ''
 
 ------------------------------------------------------
 python-config
 /usr/bin/python-config
-find program=['/usr/bin/python-config', 'python2.7-config', 'python-config-2.7', 'python2.7m-config'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='PYTHON_CONFIG' -> ['/usr/bin/python-config']
+find program=['/usr/bin/python-config', 'python2.7-config', 'python-config-2.7', 'python2.7m-config'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='PYTHON_CONFIG' -> ['/usr/bin/python-config']
 ------------------------------------------------------------------
 Asking python-config for pyembed '--cflags --libs --ldflags' flags
 ['/usr/bin/python-config', '--cflags', '--libs', '--ldflags']
-out: -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7  -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes
+out: -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7  -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes
 -lpython2.7 -lpthread -ldl  -lutil -lm 
 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7 -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
 
@@ -827,17 +829,17 @@ int main(int argc, char **argv)
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_8e0f22b3fa9124870029717149c33509/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_3f70c5da2bf139d557f9f3eb3c1f4904/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fno-strict-aliasing', '-fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=.', '-fstack-protector-strong', '-fwrapv', '-I/usr/include/python2.7', '-I/usr/include/x86_64-linux-gnu/python2.7', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-D_FORTIFY_SOURCE=2', '-DNDEBUG', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_8e0f22b3fa9124870029717149c33509/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_8e0f22b3fa9124870029717149c33509/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fno-strict-aliasing', '-fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=.', '-fstack-protector-strong', '-fwrapv', '-I/usr/include/python2.7', '-I/usr/include/x86_64-linux-gnu/python2.7', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-D_FORTIFY_SOURCE=2', '-DNDEBUG', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_3f70c5da2bf139d557f9f3eb3c1f4904/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_3f70c5da2bf139d557f9f3eb3c1f4904/testbuild/testprog[0m
 
-['/usr/bin/g++', '-Xlinker', '-export-dynamic', '-Wl,-O1', '-Wl,-Bsymbolic-functions', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_8e0f22b3fa9124870029717149c33509/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib/python2.7/config-x86_64-linux-gnu', '-L/usr/lib', '-lpython2.7', '-lpthread', '-ldl', '-lutil', '-lm']
+['/usr/bin/g++', '-Xlinker', '-export-dynamic', '-Wl,-O1', '-Wl,-Bsymbolic-functions', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_3f70c5da2bf139d557f9f3eb3c1f4904/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib/python2.7/config-x86_64-linux-gnu', '-L/usr/lib', '-lpython2.7', '-lpthread', '-ldl', '-lutil', '-lm']
 yes
 ------------------------------------------------------------------
 Asking python-config for pyext '--cflags --libs --ldflags' flags
 ['/usr/bin/python-config', '--cflags', '--libs', '--ldflags']
-out: -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7  -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes
+out: -I/usr/include/python2.7 -I/usr/include/x86_64-linux-gnu/python2.7  -fno-strict-aliasing -Wdate-time -D_FORTIFY_SOURCE=2 -g -fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=. -fstack-protector-strong -Wformat -Werror=format-security  -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes
 -lpython2.7 -lpthread -ldl  -lutil -lm 
 -L/usr/lib/python2.7/config-x86_64-linux-gnu -L/usr/lib -lpython2.7 -lpthread -ldl  -lutil -lm  -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
 
@@ -864,30 +866,30 @@ int main(int argc, char **argv)
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_c2ebf7d938ab4e1a7245b434c7c8b1f5/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_51347b6a17bab0f0750b7aaf6985c71d/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fPIC', '-fno-strict-aliasing', '-fdebug-prefix-map=/build/python2.7-W1mjrO/python2.7-2.7.18=.', '-fstack-protector-strong', '-fwrapv', '-I/usr/include/python2.7', '-I/usr/include/x86_64-linux-gnu/python2.7', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-D_FORTIFY_SOURCE=2', '-DNDEBUG', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_c2ebf7d938ab4e1a7245b434c7c8b1f5/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_c2ebf7d938ab4e1a7245b434c7c8b1f5/testbuild/testprog.so[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fPIC', '-fno-strict-aliasing', '-fdebug-prefix-map=/build/python2.7-D7NSzq/python2.7-2.7.17=.', '-fstack-protector-strong', '-fwrapv', '-I/usr/include/python2.7', '-I/usr/include/x86_64-linux-gnu/python2.7', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-D_FORTIFY_SOURCE=2', '-DNDEBUG', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_51347b6a17bab0f0750b7aaf6985c71d/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_51347b6a17bab0f0750b7aaf6985c71d/testbuild/testprog.so[0m
 
-['/usr/bin/g++', '-shared', '-Xlinker', '-export-dynamic', '-Wl,-O1', '-Wl,-Bsymbolic-functions', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_c2ebf7d938ab4e1a7245b434c7c8b1f5/testbuild/testprog.so', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib/python2.7/config-x86_64-linux-gnu', '-L/usr/lib', '-lpython2.7', '-lpthread', '-ldl', '-lutil', '-lm']
+['/usr/bin/g++', '-shared', '-Xlinker', '-export-dynamic', '-Wl,-O1', '-Wl,-Bsymbolic-functions', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_51347b6a17bab0f0750b7aaf6985c71d/testbuild/testprog.so', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-L/usr/lib/python2.7/config-x86_64-linux-gnu', '-L/usr/lib', '-lpython2.7', '-lpthread', '-ldl', '-lutil', '-lm']
 yes
 ------------------------------------------------------------------
 Checking for compilation flag -fvisibility=hidden support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_60513e964d023cfdb825792be66e6a08/test.cpp[0m
+[1/1] Compiling [32mbuild/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fvisibility=hidden', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-DHAVE_PYTHON_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_60513e964d023cfdb825792be66e6a08/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-fvisibility=hidden', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-DHAVE_PYTHON_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/testbuild/test.cpp.1.o']
 ok
 ------------------------------------------------------------------
 Checking for compilation flag -Wno-array-bounds support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_60513e964d023cfdb825792be66e6a08/test.cpp[0m
+[1/1] Compiling [32mbuild/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-Wno-array-bounds', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-DHAVE_PYTHON_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_60513e964d023cfdb825792be66e6a08/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-Wno-array-bounds', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DPYTHONDIR="/usr/local/lib/python2.7/dist-packages"', '-DPYTHONARCHDIR="/usr/local/lib/python2.7/dist-packages"', '-DHAVE_PYEMBED=1', '-DHAVE_PYEXT=1', '-DHAVE_PYTHON_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_efcce1f4746c6d8eaddfaaf2d5b40c10/testbuild/test.cpp.1.o']
 ok
 ------------------------------------------------------------------
 Checking for pybindgen location
@@ -900,303 +902,27 @@ err: Traceback (most recent call last):
 ImportError: No module named pybindgen
 
 not found
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/bindings/python: Could not find the python module 'pybindgen'
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/bindings/python: Could not find the python module 'pybindgen'
 ------------------------------------------------------------------
 Checking boost includes
-1_71
-------------------------------------------------------------------
-Checking boost libs
-Found the boost path in /usr/lib/x86_64-linux-gnu with the libraries:
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.a
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.a
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_container.a
-    /usr/lib/x86_64-linux-gnu/libboost_container.so
-    /usr/lib/x86_64-linux-gnu/libboost_container.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_context.a
-    /usr/lib/x86_64-linux-gnu/libboost_context.so
-    /usr/lib/x86_64-linux-gnu/libboost_context.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.a
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.so
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.a
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_exception.a
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.a
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.so
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_graph.a
-    /usr/lib/x86_64-linux-gnu/libboost_graph.so
-    /usr/lib/x86_64-linux-gnu/libboost_graph.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.a
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.so
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.a
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.so
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_locale.a
-    /usr/lib/x86_64-linux-gnu/libboost_locale.so
-    /usr/lib/x86_64-linux-gnu/libboost_locale.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_log.a
-    /usr/lib/x86_64-linux-gnu/libboost_log.so
-    /usr/lib/x86_64-linux-gnu/libboost_log.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.a
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.so
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.a
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.so
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.a
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.so
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.a
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.so
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.a
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.so
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.a
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_python38.a
-    /usr/lib/x86_64-linux-gnu/libboost_python38.so
-    /usr/lib/x86_64-linux-gnu/libboost_python38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_random.a
-    /usr/lib/x86_64-linux-gnu/libboost_random.so
-    /usr/lib/x86_64-linux-gnu/libboost_random.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_regex.a
-    /usr/lib/x86_64-linux-gnu/libboost_regex.so
-    /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.a
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.so
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_system.a
-    /usr/lib/x86_64-linux-gnu/libboost_system.so
-    /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_test_exec_monitor.a
-    /usr/lib/x86_64-linux-gnu/libboost_thread.a
-    /usr/lib/x86_64-linux-gnu/libboost_thread.so
-    /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_timer.a
-    /usr/lib/x86_64-linux-gnu/libboost_timer.so
-    /usr/lib/x86_64-linux-gnu/libboost_timer.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.a
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.so
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.a
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_wave.a
-    /usr/lib/x86_64-linux-gnu/libboost_wave.so
-    /usr/lib/x86_64-linux-gnu/libboost_wave.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.a
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.so
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.so.1.71.0
-Trying pattern boost_system(-gcc[0-9]{0,3})-1_71.so$
-Trying pattern boost_system-1_71.so$
-Trying pattern boost_system(-gcc[0-9]{0,3}).so$
-Trying pattern boost_system.so$
-Found boost lib libboost_system.so
-Trying pattern boost_signals(-gcc[0-9]{0,3})-1_71.so$
-Trying pattern boost_signals-1_71.so$
-Trying pattern boost_signals(-gcc[0-9]{0,3}).so$
-Trying pattern boost_signals.so$
-Trying pattern boost_signals.so$
-Trying pattern boost_signals
-lib signals not found in /usr/lib/x86_64-linux-gnu
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src: The configuration failed
+headers not found, please provide a --boost-includes argument (see help)
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src: The configuration failed
 ------------------------------------------------------------------
 Checking boost includes
-1_71
-------------------------------------------------------------------
-Checking boost libs
-Found the boost path in /usr/lib/x86_64-linux-gnu with the libraries:
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.a
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.so
-    /usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.a
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-    /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_container.a
-    /usr/lib/x86_64-linux-gnu/libboost_container.so
-    /usr/lib/x86_64-linux-gnu/libboost_container.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_context.a
-    /usr/lib/x86_64-linux-gnu/libboost_context.so
-    /usr/lib/x86_64-linux-gnu/libboost_context.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.a
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.so
-    /usr/lib/x86_64-linux-gnu/libboost_coroutine.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.a
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-    /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_exception.a
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.a
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.so
-    /usr/lib/x86_64-linux-gnu/libboost_fiber.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.a
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-    /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_graph.a
-    /usr/lib/x86_64-linux-gnu/libboost_graph.so
-    /usr/lib/x86_64-linux-gnu/libboost_graph.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.a
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.so
-    /usr/lib/x86_64-linux-gnu/libboost_graph_parallel.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.a
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.so
-    /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_locale.a
-    /usr/lib/x86_64-linux-gnu/libboost_locale.so
-    /usr/lib/x86_64-linux-gnu/libboost_locale.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_log.a
-    /usr/lib/x86_64-linux-gnu/libboost_log.so
-    /usr/lib/x86_64-linux-gnu/libboost_log.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.a
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.so
-    /usr/lib/x86_64-linux-gnu/libboost_log_setup.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99f.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_c99l.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1f.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.a
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.so
-    /usr/lib/x86_64-linux-gnu/libboost_math_tr1l.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.a
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.so
-    /usr/lib/x86_64-linux-gnu/libboost_mpi.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.a
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.so
-    /usr/lib/x86_64-linux-gnu/libboost_mpi_python38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.a
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.so
-    /usr/lib/x86_64-linux-gnu/libboost_numpy38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.a
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.so
-    /usr/lib/x86_64-linux-gnu/libboost_prg_exec_monitor.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.a
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-    /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_python38.a
-    /usr/lib/x86_64-linux-gnu/libboost_python38.so
-    /usr/lib/x86_64-linux-gnu/libboost_python38.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_random.a
-    /usr/lib/x86_64-linux-gnu/libboost_random.so
-    /usr/lib/x86_64-linux-gnu/libboost_random.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_regex.a
-    /usr/lib/x86_64-linux-gnu/libboost_regex.so
-    /usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.a
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.so
-    /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_addr2line.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_backtrace.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_basic.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.a
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.so
-    /usr/lib/x86_64-linux-gnu/libboost_stacktrace_noop.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_system.a
-    /usr/lib/x86_64-linux-gnu/libboost_system.so
-    /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_test_exec_monitor.a
-    /usr/lib/x86_64-linux-gnu/libboost_thread.a
-    /usr/lib/x86_64-linux-gnu/libboost_thread.so
-    /usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_timer.a
-    /usr/lib/x86_64-linux-gnu/libboost_timer.so
-    /usr/lib/x86_64-linux-gnu/libboost_timer.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.a
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.so
-    /usr/lib/x86_64-linux-gnu/libboost_type_erasure.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.a
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so
-    /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_wave.a
-    /usr/lib/x86_64-linux-gnu/libboost_wave.so
-    /usr/lib/x86_64-linux-gnu/libboost_wave.so.1.71.0
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.a
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.so
-    /usr/lib/x86_64-linux-gnu/libboost_wserialization.so.1.71.0
-Trying pattern boost_system(-gcc[0-9]{0,3})-1_71.so$
-Trying pattern boost_system-1_71.so$
-Trying pattern boost_system(-gcc[0-9]{0,3}).so$
-Trying pattern boost_system.so$
-Found boost lib libboost_system.so
-Trying pattern boost_signals(-gcc[0-9]{0,3})-1_71.so$
-Trying pattern boost_signals-1_71.so$
-Trying pattern boost_signals(-gcc[0-9]{0,3}).so$
-Trying pattern boost_signals.so$
-Trying pattern boost_signals.so$
-Trying pattern boost_signals
-lib signals not found in /usr/lib/x86_64-linux-gnu
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src: The configuration failed
+headers not found, please provide a --boost-includes argument (see help)
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src: The configuration failed
 ------------------------------------------------------------------
 Checking for click location
 not found
 ------------------------------------------------------------------
 Checking for program 'pkg-config'
 /usr/bin/pkg-config
-find program=['pkg-config'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='PKGCONFIG' -> ['/usr/bin/pkg-config']
+find program=['pkg-config'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='PKGCONFIG' -> ['/usr/bin/pkg-config']
 ------------------------------------------------------------------
 Checking for 'gtk+-2.0' >= 2.12
 ['/usr/bin/pkg-config', '--atleast-version=2.12', 'gtk+-2.0']
-['/usr/bin/pkg-config', '--cflags', '--libs', 'gtk+-2.0']
-out: -pthread -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/pango-1.0 -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lharfbuzz -lfontconfig -lfreetype
-
-yes
+not found
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/config-store: The configuration failed
 ------------------------------------------------------------------
 Checking for 'libxml-2.0' >= 2.7
 ['/usr/bin/pkg-config', '--atleast-version=2.7', 'libxml-2.0']
@@ -1217,9 +943,9 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_ef18a90fbe22337ed81888a2a6f5a2f9/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_0d11fb8c2de35ef9a0636f929c3fc4c1/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ef18a90fbe22337ed81888a2a6f5a2f9/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0d11fb8c2de35ef9a0636f929c3fc4c1/testbuild/test.cpp.1.o']
 err: ../test.cpp: In function ‘int main(int, char**)’:
 ../test.cpp:5:7: error: ‘uint128_t’ was not declared in this scope
   if ((uint128_t *) 0) return 0;
@@ -1242,18 +968,18 @@ err: ../test.cpp: In function ‘int main(int, char**)’:
               ^~~~~~~~~
               uint32_t
 
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: Test does not build: Traceback (most recent call last):
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
     bld.compile()
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140464099298512: cxx test.cpp -> test.cpp.1.o}
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ef18a90fbe22337ed81888a2a6f5a2f9/testbuild/test.cpp.1.o']
+	{task 140398243335696: cxx test.cpp -> test.cpp.1.o}
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0d11fb8c2de35ef9a0636f929c3fc4c1/testbuild/test.cpp.1.o']
 
 not found
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: The configuration failed
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: The configuration failed
 ------------------------------------------------------------------
 Checking for type __uint128_t
 ==>
@@ -1267,12 +993,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_d6714f35c492b5d7c44bc1c659590ce4/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_588486008da1b48810279d1283533339/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_d6714f35c492b5d7c44bc1c659590ce4/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_d6714f35c492b5d7c44bc1c659590ce4/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_588486008da1b48810279d1283533339/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_588486008da1b48810279d1283533339/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_d6714f35c492b5d7c44bc1c659590ce4/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_588486008da1b48810279d1283533339/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking high precision implementation
@@ -1288,12 +1014,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header inttypes.h
@@ -1306,12 +1032,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_5218aa71d65f579bf098547c16f367e5/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header sys/inttypes.h
@@ -1324,26 +1050,26 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/testbuild/test.cpp.1.o']
 err: ../test.cpp:1:10: fatal error: sys/inttypes.h: No such file or directory
  #include <sys/inttypes.h>
           ^~~~~~~~~~~~~~~~
 compilation terminated.
 
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: Test does not build: Traceback (most recent call last):
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
     bld.compile()
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140464099490768: cxx test.cpp -> test.cpp.1.o}
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/testbuild/test.cpp.1.o']
+	{task 140398243562064: cxx test.cpp -> test.cpp.1.o}
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/testbuild/test.cpp.1.o']
 
 not found
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: The configuration failed
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: The configuration failed
 ------------------------------------------------------------------
 Checking for header sys/types.h
 ==>
@@ -1355,12 +1081,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_3926f783dba6ea8309a017580124ce09/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_b794c96c9ea329693885cc0cdd43d1b6/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_3926f783dba6ea8309a017580124ce09/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_3926f783dba6ea8309a017580124ce09/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_b794c96c9ea329693885cc0cdd43d1b6/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_b794c96c9ea329693885cc0cdd43d1b6/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_3926f783dba6ea8309a017580124ce09/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_b794c96c9ea329693885cc0cdd43d1b6/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header sys/stat.h
@@ -1373,12 +1099,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_56ca98751d8cf909c2b3f53b17e4648f/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_c7fcbbdbb6e0e78b9a664d2823192b63/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_56ca98751d8cf909c2b3f53b17e4648f/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_56ca98751d8cf909c2b3f53b17e4648f/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_c7fcbbdbb6e0e78b9a664d2823192b63/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_c7fcbbdbb6e0e78b9a664d2823192b63/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_56ca98751d8cf909c2b3f53b17e4648f/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_c7fcbbdbb6e0e78b9a664d2823192b63/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header dirent.h
@@ -1391,12 +1117,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_ff872e617aed4f7b57c3fa0025b234e0/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_a582ab9748fb1a2020016eec412322c5/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ff872e617aed4f7b57c3fa0025b234e0/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_ff872e617aed4f7b57c3fa0025b234e0/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_a582ab9748fb1a2020016eec412322c5/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_a582ab9748fb1a2020016eec412322c5/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ff872e617aed4f7b57c3fa0025b234e0/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_a582ab9748fb1a2020016eec412322c5/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header stdlib.h
@@ -1409,12 +1135,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_4c54d31b8fe0a0443385073dc9c1364f/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_52b12cec49e89ac81403ce31f2011ce1/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_4c54d31b8fe0a0443385073dc9c1364f/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_4c54d31b8fe0a0443385073dc9c1364f/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_52b12cec49e89ac81403ce31f2011ce1/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_52b12cec49e89ac81403ce31f2011ce1/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_4c54d31b8fe0a0443385073dc9c1364f/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_52b12cec49e89ac81403ce31f2011ce1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header signal.h
@@ -1427,12 +1153,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_c4ffc0750675a1f449ffb7a5004671ee/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_c9ddb34263ebf8bbaa60e9611e21640d/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_c4ffc0750675a1f449ffb7a5004671ee/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_c4ffc0750675a1f449ffb7a5004671ee/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_c9ddb34263ebf8bbaa60e9611e21640d/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_c9ddb34263ebf8bbaa60e9611e21640d/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_c4ffc0750675a1f449ffb7a5004671ee/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_c9ddb34263ebf8bbaa60e9611e21640d/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header pthread.h
@@ -1447,12 +1173,12 @@ int main ()
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_27341a179be83117f79cdcf6bdcbb110/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_40460c02bb24469ab0ee916ac14489cc/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-pthread', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_27341a179be83117f79cdcf6bdcbb110/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_27341a179be83117f79cdcf6bdcbb110/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-pthread', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_40460c02bb24469ab0ee916ac14489cc/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_40460c02bb24469ab0ee916ac14489cc/testbuild/testprog[0m
 
-['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_27341a179be83117f79cdcf6bdcbb110/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_40460c02bb24469ab0ee916ac14489cc/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header stdint.h
@@ -1465,12 +1191,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_INTTYPES_H=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_b6003f1e6db9c7a8ecbfccb7a950f428/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_9a2c0bf8a30e4eb248b1e2e0d868a82f/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header inttypes.h
@@ -1483,12 +1209,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_5218aa71d65f579bf098547c16f367e5/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_a4ba03a7d26c06ca89156c5dbcff11ea/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_5218aa71d65f579bf098547c16f367e5/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header sys/inttypes.h
@@ -1501,26 +1227,26 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/testbuild/test.cpp.1.o']
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/testbuild/test.cpp.1.o']
 err: ../test.cpp:1:10: fatal error: sys/inttypes.h: No such file or directory
  #include <sys/inttypes.h>
           ^~~~~~~~~~~~~~~~
 compilation terminated.
 
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: Test does not build: Traceback (most recent call last):
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: Test does not build: Traceback (most recent call last):
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Configure.py", line 335, in run_build
     bld.compile()
-  File "/home/blue/EDBTMA/IEEE-802.11ah-ns-3/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
+  File "/home/jonathan/IEEE802.11ah-ns3-Busytone/.waf-1.8.19-b1fc8f7baef51bd2db4c2971909a568d/waflib/Build.py", line 185, in compile
     raise Errors.BuildError(self.producer.error)
 BuildError: Build failed
  -> task in 'testprog' failed (exit status 1): 
-	{task 140464099610384: cxx test.cpp -> test.cpp.1.o}
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_797e9fdd1f772ee5b8db66fafcf5e625/testbuild/test.cpp.1.o']
+	{task 140398243502544: cxx test.cpp -> test.cpp.1.o}
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_036b6c19e64c5dfa3f487c936a5fbe20/testbuild/test.cpp.1.o']
 
 not found
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3/src/core: The configuration failed
+from /home/jonathan/IEEE802.11ah-ns3-Busytone/src/core: The configuration failed
 ------------------------------------------------------------------
 Checking for library rt
 ==>
@@ -1531,12 +1257,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_e443518cee25f8d012e7ddb58dcea1ba/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_d0dae19016b2936c1889eb2d9cda43be/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-pthread', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_e443518cee25f8d012e7ddb58dcea1ba/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_e443518cee25f8d012e7ddb58dcea1ba/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-pthread', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE___UINT128_T=1', '-DINT64X64_USE_128=1', '-DHAVE_SYS_TYPES_H=1', '-DHAVE_SYS_STAT_H=1', '-DHAVE_DIRENT_H=1', '-DHAVE_STDLIB_H=1', '-DHAVE_GETENV=1', '-DHAVE_SIGNAL_H=1', '-DHAVE_PTHREAD_H=1', '-DHAVE_STDINT_H=1', '-DHAVE_INTTYPES_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_d0dae19016b2936c1889eb2d9cda43be/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_d0dae19016b2936c1889eb2d9cda43be/testbuild/testprog[0m
 
-['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_e443518cee25f8d012e7ddb58dcea1ba/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lrt']
+['/usr/bin/g++', '-pthread', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_d0dae19016b2936c1889eb2d9cda43be/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic', '-lrt']
 yes
 ------------------------------------------------------------------
 Checking for header sys/ioctl.h
@@ -1549,12 +1275,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_852eb6b6e9292fcd188157d716e953b4/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_0d17cd870845235452c2e7938532f644/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_852eb6b6e9292fcd188157d716e953b4/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_852eb6b6e9292fcd188157d716e953b4/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0d17cd870845235452c2e7938532f644/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_0d17cd870845235452c2e7938532f644/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_852eb6b6e9292fcd188157d716e953b4/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0d17cd870845235452c2e7938532f644/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header net/if.h
@@ -1567,12 +1293,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_32ab04ad4ae5cb3eacb8fdc09813c818/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_a559b9b81a95b5d86c6a07d728ac518d/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_32ab04ad4ae5cb3eacb8fdc09813c818/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_32ab04ad4ae5cb3eacb8fdc09813c818/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_a559b9b81a95b5d86c6a07d728ac518d/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_a559b9b81a95b5d86c6a07d728ac518d/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_32ab04ad4ae5cb3eacb8fdc09813c818/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_a559b9b81a95b5d86c6a07d728ac518d/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header net/ethernet.h
@@ -1585,12 +1311,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_3db1df3c376226fda4d13993caf81db3/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_711db370f68140f3902d7916eed6c2ab/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_3db1df3c376226fda4d13993caf81db3/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_3db1df3c376226fda4d13993caf81db3/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_711db370f68140f3902d7916eed6c2ab/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_711db370f68140f3902d7916eed6c2ab/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_3db1df3c376226fda4d13993caf81db3/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_711db370f68140f3902d7916eed6c2ab/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header linux/if_tun.h
@@ -1603,12 +1329,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for header netpacket/packet.h
@@ -1621,12 +1347,12 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_ddacf09f6a69600cdc3396d0addb27c2/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_0e52d47b70cc27cea5170c3a76f6700a/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_IF_TUN_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ddacf09f6a69600cdc3396d0addb27c2/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_ddacf09f6a69600cdc3396d0addb27c2/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_IF_TUN_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0e52d47b70cc27cea5170c3a76f6700a/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_0e52d47b70cc27cea5170c3a76f6700a/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_ddacf09f6a69600cdc3396d0addb27c2/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_0e52d47b70cc27cea5170c3a76f6700a/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for NSC location
@@ -1648,60 +1374,65 @@ int main(int argc, char **argv) {
 }
 
 <==
-[1/2] Compiling [32mbuild/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/test.cpp[0m
+[1/2] Compiling [32mbuild/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/test.cpp[0m
 
-['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '../test.cpp', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/test.cpp.1.o']
-[2/2] Linking [33mbuild/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/testprog[0m
+['/usr/bin/g++', '-std=c++11', '-std=c++11', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '../test.cpp', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/test.cpp.1.o']
+[2/2] Linking [33mbuild/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/testprog[0m
 
-['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_9c7a48633cb5aa6bf02e3c08cb7f45b1/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
+['/usr/bin/g++', 'test.cpp.1.o', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_6c9787a890e3b3197ccde2ace3d5f3bf/testbuild/testprog', '-Wl,-Bstatic', '-Wl,-Bdynamic']
 yes
 ------------------------------------------------------------------
 Checking for program 'sudo'
 /usr/bin/sudo
-find program=['sudo'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='SUDO' -> ['/usr/bin/sudo']
+find program=['sudo'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='SUDO' -> ['/usr/bin/sudo']
 ------------------------------------------------------------------
 Checking for program 'valgrind'
 /usr/bin/valgrind
-find program=['valgrind'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='VALGRIND' -> ['/usr/bin/valgrind']
+find program=['valgrind'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='VALGRIND' -> ['/usr/bin/valgrind']
 ------------------------------------------------------------------
 Checking for 'gsl'
 ['/usr/bin/pkg-config', '--cflags', '--libs', 'gsl']
-out: -lgsl -lgslcblas -lm
+err: Package gsl was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gsl.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gsl' found
 
-yes
+not found
+from /home/jonathan/IEEE802.11ah-ns3-Busytone: The configuration failed
 ------------------------------------------------------------------
 python-config
 not found
-find program=['libgcrypt-config'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='LIBGCRYPT_CONFIG' -> None
-from /home/blue/EDBTMA/IEEE-802.11ah-ns-3: Could not find the program ['libgcrypt-config']
+find program=['libgcrypt-config'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='LIBGCRYPT_CONFIG' -> None
+from /home/jonathan/IEEE802.11ah-ns3-Busytone: Could not find the program ['libgcrypt-config']
 ------------------------------------------------------------------
 Checking for compilation flag -Wno-error=deprecated-d... support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_7eeb60708494822440f48132262cd66b/test.c[0m
+[1/1] Compiling [32mbuild/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/test.c[0m
 
-['/usr/bin/gcc', '-Wno-error=deprecated-declarations', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_7eeb60708494822440f48132262cd66b/testbuild/test.c.1.o']
+['/usr/bin/gcc', '-Wno-error=deprecated-declarations', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/testbuild/test.c.1.o']
 ok
 ------------------------------------------------------------------
 Checking for compilation flag -fstrict-aliasing support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_7eeb60708494822440f48132262cd66b/test.c[0m
+[1/1] Compiling [32mbuild/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/test.c[0m
 
-['/usr/bin/gcc', '-fstrict-aliasing', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_7eeb60708494822440f48132262cd66b/testbuild/test.c.1.o']
+['/usr/bin/gcc', '-fstrict-aliasing', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/testbuild/test.c.1.o']
 ok
 ------------------------------------------------------------------
 Checking for compilation flag -Wstrict-aliasing support
 ==>
 int main() { return 0; }
 <==
-[1/1] Compiling [32mbuild/.conf_check_7eeb60708494822440f48132262cd66b/test.c[0m
+[1/1] Compiling [32mbuild/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/test.c[0m
 
-['/usr/bin/gcc', '-Wstrict-aliasing', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/blue/EDBTMA/IEEE-802.11ah-ns-3/build/.conf_check_7eeb60708494822440f48132262cd66b/testbuild/test.c.1.o']
+['/usr/bin/gcc', '-Wstrict-aliasing', '-DNS3_BUILD_PROFILE_DEBUG', '-DNS3_ASSERT_ENABLE', '-DNS3_LOG_ENABLE', '-DHAVE_SYS_IOCTL_H=1', '-DHAVE_IF_NETS_H=1', '-DHAVE_NET_ETHERNET_H=1', '-DHAVE_PACKET_H=1', '-DHAVE_IF_TUN_H=1', '../test.c', '-c', '-o', '/home/jonathan/IEEE802.11ah-ns3-Busytone/build/.conf_check_fc6c067b1002c1b60ac9b2d9f3b96d99/testbuild/test.c.1.o']
 ok
 ------------------------------------------------------------------
 Checking for program 'doxygen'
-/usr/bin/doxygen
-find program=['doxygen'] paths=['/home/blue/.local/bin', '/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2022.8.0_x64__79rhkp1fndgsc', '/mnt/c/WINDOWS/system32', '/mnt/c/WINDOWS', '/mnt/c/WINDOWS/System32/Wbem', '/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/', '/mnt/c/WINDOWS/System32/OpenSSH/', '/mnt/c/Program Files/dotnet/', '/mnt/c/ctags', '/mnt/c/Program Files/SourceGear/Common/DiffMerge/', '/mnt/c/Program Files/WinMerge', '/mnt/c/Users/Blue/AppData/Local/activestate/cache/bin', '/mnt/c/Users/Blue/AppData/Local/ActiveState/StateTool/release/bin', '/mnt/c/Users/Blue/AppData/Local/Microsoft/WindowsApps', '/mnt/c/Users/Blue/AppData/Local/Programs/Microsoft VS Code/bin', '/mnt/c/Users/Blue/.dotnet/tools', '/mnt/c/iverilog/bin', '/mnt/c/iverilog/gtkwave/bin', '/snap/bin'] var='DOXYGEN' -> ['/usr/bin/doxygen']
+not found
+find program=['doxygen'] paths=['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin', '/usr/games', '/usr/local/games', '/snap/bin'] var='DOXYGEN' -> None
+from /home/jonathan/IEEE802.11ah-ns3-Busytone: Could not find the program ['doxygen']
