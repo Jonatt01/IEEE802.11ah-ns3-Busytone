@@ -52,6 +52,7 @@
 #include "ns3/dsdv-module.h"
 #include "ns3/flow-monitor-module.h"
 #include "myapp.h"
+#include "ns3/random-variable-stream.h"
 
 #include <iostream>
 #include <fstream>
@@ -119,19 +120,29 @@ int main (int argc, char *argv[])
   NetDeviceContainer devices = wifi.Install (wifiPhy, wifiMac, c);
 
   MobilityHelper mobility;
-  /*----------------------------------------------- */
-  //可以參考lab3 part2
-  //set position allocator
-  //your code
-  /*----------------------------------------------- */
-  mobility.SetPositionAllocator ("ns3::GridPositionAllocator",
-                    "MinX",DoubleValue(0),
-                    "MinY",DoubleValue(0),
-                    "DeltaX",DoubleValue(-500.0),
-                    "DeltaY",DoubleValue(-500.0),
-                    "GridWidth",UintegerValue(5),
-                    "LayoutType",StringValue("RowFirst"));
 
+  /*----------------------------------------------- */
+  // random topology
+  // set position allocator
+  /*----------------------------------------------- */
+  double min = 0.0;
+  double max = 2000.0; // length of square side
+  
+  Ptr<UniformRandomVariable> uniform_rv = CreateObject<UniformRandomVariable>();
+  uniform_rv->SetAttribute ("Min", DoubleValue (min));
+  uniform_rv->SetAttribute ("Max", DoubleValue (max));
+
+	Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator>();
+  for(int i=0; i < numNodes; ++i)
+  {
+    Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
+    double x_pos = uniform_rv->GetValue (); // within the range [min, max)
+    double y_pos = uniform_rv->GetValue (); // within the range [min, max)
+
+		positionAlloc->Add(Vector(x_pos, y_pos, 0.0));
+	}
+	mobility.SetPositionAllocator(positionAlloc);
+  /*----------------------------------------------- */
 
   mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobility.Install (c);
