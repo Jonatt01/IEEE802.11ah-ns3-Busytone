@@ -167,6 +167,19 @@ int main (int argc, char *argv[])
   // Create Apps
   uint16_t sinkPort = 6; // use the same for all apps
 
+
+  // Specify the path to the CSV file in the previous folder
+  const std::string filePath = "../Python-Tools/node_position.csv";
+
+  // Open the file for writing
+  std::ofstream outputFile(filePath);
+
+  // Check if the file is successfully opened
+  if (!outputFile.is_open()) {
+      std::cerr << "Error opening the file." << std::endl;
+      return 1;
+  }
+
   // Obtain the position of node i+1 (ns3 counts from zero)
   for(int i = 0; i < 25; ++i)
   {
@@ -181,8 +194,13 @@ int main (int argc, char *argv[])
     double z = mob->GetPosition().z;
 
     std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
-  }
 
+    // Write numbers to the file
+    outputFile << x << "," << y << std::endl;
+  }
+  
+  outputFile.close();
+  std::cout << "Position have been saved to: " << filePath << std::endl;
 
   //flow 1
   // UDP connection from N0 to N24
