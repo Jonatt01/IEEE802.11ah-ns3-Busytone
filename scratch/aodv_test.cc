@@ -75,7 +75,7 @@ int main (int argc, char *argv[])
   uint32_t numNodes = 25;  // 5x5
   double interval = 0.01; // seconds(Default = 0.001)
   uint32_t packetSize = 500; // bytes(Default = 600)
-  uint32_t numPackets = 1;//1 vs 10000
+  uint32_t numPackets = 1000;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
   CommandLine cmd;
 
@@ -273,7 +273,7 @@ int main (int argc, char *argv[])
   // Print per flow statistics
   monitor->CheckForLostPackets ();
   Ptr<Ipv4FlowClassifier> classifier = DynamicCast<Ipv4FlowClassifier> (flowmon.GetClassifier ());
-  std::map<FlowId, FlowMonitor::FlowStats> stats = monitor->GetFlowStats ();
+  std::map<FlowId, FlowMonitor::FlowStats> stats = monitor->GetFlowStats (); // access the private attribute m_flowStats in instance of class FlowMonitor
 
   for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator iter = stats.begin (); iter != stats.end (); ++iter)
     {
