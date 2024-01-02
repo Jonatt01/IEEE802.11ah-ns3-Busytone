@@ -75,7 +75,7 @@ int main (int argc, char *argv[])
   uint32_t numNodes = 25;  // 5x5
   double interval = 0.01; // seconds(Default = 0.001)
   uint32_t packetSize = 500; // bytes(Default = 600)
-  uint32_t numPackets = 1000;//1 vs 10000
+  uint32_t numPackets = 1;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
   CommandLine cmd;
 
@@ -102,7 +102,7 @@ int main (int argc, char *argv[])
   // set it to zero; otherwise, gain will be added
   wifiPhy.Set ("RxGain", DoubleValue (-10) ); 
   // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
-  wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
+  // wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
 
   YansWifiChannelHelper wifiChannel;
   wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
@@ -248,7 +248,7 @@ int main (int argc, char *argv[])
   FlowMonitorHelper flowmon;
   Ptr<FlowMonitor> monitor = flowmon.InstallAll();
 
-  wifiPhy.EnablePcap ("lab-4-solved", devices);
+  // wifiPhy.EnablePcap ("lab-4-solved", devices);
  
   Simulator::Stop (Seconds (100.0));
   Simulator::Run ();
