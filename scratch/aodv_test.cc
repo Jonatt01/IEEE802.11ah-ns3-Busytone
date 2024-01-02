@@ -68,7 +68,7 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  // LogComponentEnable("AodvRoutingProtocol",LOG_LEVEL_INFO);
+  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
 
   std::string phyMode ("DsssRate1Mbps");
   double distance = 500;  //(m)
@@ -193,7 +193,7 @@ int main (int argc, char *argv[])
     double y = mob->GetPosition().y;
     double z = mob->GetPosition().z;
 
-    std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
+    // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
 
     // Write numbers to the file
     outputFile << x << "," << y << std::endl;
