@@ -68,7 +68,7 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
 
   std::string phyMode ("DsssRate1Mbps");
   double distance = 500;  //(m)
@@ -77,7 +77,7 @@ int main (int argc, char *argv[])
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
-  bool printRoutingTables = true;
+  bool printRoutingTables = false;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -165,10 +165,11 @@ int main (int argc, char *argv[])
   ipv4.SetBase ("10.1.1.0", "255.255.255.0");//給予ipv4address
   Ipv4InterfaceContainer ifcont = ipv4.Assign (devices);
 
-  // print the specific node routing table e.g., node 13
+  // print the specific node's routing table e.g., node 13
   if(printRoutingTables)
   {
     Ptr<OutputStreamWrapper> routingStream = Create<OutputStreamWrapper> (&std::cout);
+    aodv.PrintRoutingTableAt (Seconds (1.0), c.Get(13), routingStream);
     aodv.PrintRoutingTableEvery(Seconds(10), c.Get(13), routingStream);
   }
 
