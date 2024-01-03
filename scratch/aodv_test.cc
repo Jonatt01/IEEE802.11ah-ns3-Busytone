@@ -68,7 +68,7 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
 
   std::string phyMode ("DsssRate1Mbps");
   double distance = 500;  //(m)
@@ -77,6 +77,7 @@ int main (int argc, char *argv[])
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
+  bool printRoutingTables = true;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -164,8 +165,12 @@ int main (int argc, char *argv[])
   ipv4.SetBase ("10.1.1.0", "255.255.255.0");//給予ipv4address
   Ipv4InterfaceContainer ifcont = ipv4.Assign (devices);
 
-  // Create Apps
-  uint16_t sinkPort = 6; // use the same for all apps
+  // print the specific node routing table e.g., node 13
+  if(printRoutingTables)
+  {
+    Ptr<OutputStreamWrapper> routingStream = Create<OutputStreamWrapper> (&std::cout);
+    aodv.PrintRoutingTableEvery(Seconds(10), c.Get(13), routingStream);
+  }
 
 
   // Specify the path to the CSV file in the previous folder
@@ -201,6 +206,9 @@ int main (int argc, char *argv[])
   
   outputFile.close();
   std::cout << "Position have been saved to: " << filePath << std::endl;
+
+  // Create Apps
+  uint16_t sinkPort = 6; // use the same for all apps
 
   //flow 1
   // UDP connection from N0 to N24
