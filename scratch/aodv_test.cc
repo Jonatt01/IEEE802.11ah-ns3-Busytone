@@ -68,8 +68,8 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
 
   std::string phyMode ("DsssRate1Mbps");
@@ -79,7 +79,7 @@ int main (int argc, char *argv[])
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1000;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
-  bool printRoutingTables = false;
+  bool printRoutingTables = true;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
