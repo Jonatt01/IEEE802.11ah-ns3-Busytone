@@ -10,6 +10,7 @@
 #include <time.h>
 #include <fstream>
 
+NS_LOG_COMPONENT_DEFINE ("Density");
 
 using namespace ns3;
 
@@ -65,10 +66,21 @@ std::__cxx11::string getWifiMode(std::__cxx11::string dataMode) {
 }
 */
 
+void TxCallBack(
+	std::string context,
+	Ptr<const Packet> packet)
+{
+	NS_LOG_UNCOND(
+		"+" <<
+		Simulator::Now().GetSeconds() << " " <<
+		packet->GetSize() << " " <<
+		context);
+}
+
 ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Address address, double simulationTime, double starttime)
 {
-	UdpServerHelper myServer(12345); //³Ð³y¤@­ÓºÊÅ¥port:12345ªºudp_server_helper
-	ApplicationContainer serverApp = myServer.Install(server); //¦bµ¹©wªºserver node¦w¸Ë¤@­Óudp_server_app
+	UdpServerHelper myServer(12345); //ï¿½Ð³yï¿½@ï¿½Óºï¿½Å¥port:12345ï¿½ï¿½udp_server_helper
+	ApplicationContainer serverApp = myServer.Install(server); //ï¿½bï¿½ï¿½ï¿½wï¿½ï¿½server nodeï¿½wï¿½Ë¤@ï¿½ï¿½udp_server_app
 	serverApp.Start(Seconds(0.0));
 	serverApp.Stop(Seconds(simulationTime + 1));
 
@@ -77,20 +89,24 @@ ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Addr
 	myClient.SetAttribute("Interval", TimeValue(Time("0.00001"))); //packets/s
 	myClient.SetAttribute("PacketSize", UintegerValue(1472));
 
-	ApplicationContainer clientApp = myClient.Install(client); //¦bµ¹©wªºclient node¦w¸Ë¤@­Óudp_client_app
+	ApplicationContainer clientApp = myClient.Install(client); //ï¿½bï¿½ï¿½ï¿½wï¿½ï¿½client nodeï¿½wï¿½Ë¤@ï¿½ï¿½udp_client_app
 	clientApp.Start(Seconds(1.0 + starttime));
 	clientApp.Stop(Seconds(simulationTime + 1));
 
-	UdpEchoClientHelper echoClientHelper(address, 9);
-	echoClientHelper.SetAttribute("MaxPackets", UintegerValue(1));
-	echoClientHelper.SetAttribute("Interval", TimeValue(Seconds(0.1)));
-	echoClientHelper.SetAttribute("PacketSize", UintegerValue(10));
-	ApplicationContainer pingApps;
+	/*------------------------------------------------------- */
+	// Useless code written by Blue
+	// Because do not have UdpEchoServer (fixed by Jonathan)
+	/*------------------------------------------------------- */
+	// UdpEchoClientHelper echoClientHelper(address, 9);
+	// echoClientHelper.SetAttribute("MaxPackets", UintegerValue(1));
+	// echoClientHelper.SetAttribute("Interval", TimeValue(Seconds(0.1)));
+	// echoClientHelper.SetAttribute("PacketSize", UintegerValue(10));
+	// ApplicationContainer pingApps;
 
-	echoClientHelper.SetAttribute("StartTime", TimeValue(Seconds(starttime / 10)));
-	pingApps.Add(echoClientHelper.Install(client)); //1
+	// echoClientHelper.SetAttribute("StartTime", TimeValue(Seconds(starttime / 10)));
+	// pingApps.Add(echoClientHelper.Install(client)); //1
 
-	return serverApp; //¦^¶Çudp_server_app
+	return serverApp; //ï¿½^ï¿½ï¿½udp_server_app
 }
 
 double run(double simulationTime, double range, double radius, int nodeNum, double cca)
@@ -104,6 +120,13 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	double r = radius;
 	Config::SetDefault("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(0));//(999999));
 	Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
+
+	// LogComponentEnable("UdpClient", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	// LogComponentEnable("UdpEchoClientApplication", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	// LogComponentEnable("UdpServer", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	// NS_LOG_INFO ("RX ");
+
 
 	NodeContainer nodes;
 	nodes.Create(nodeNum);
@@ -138,7 +161,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	//phy2.Set("RtsCtsThreshold", UintegerValue(9999999999999999));
 	phy2.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	//phy2.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	phy2.Set("EnergyDetectionThreshold", DoubleValue(-79.0)); // 1­¿ //blue
+	phy2.Set("EnergyDetectionThreshold", DoubleValue(-79.0)); // 1ï¿½ï¿½ //blue
 	phy2.Set("TxPowerEnd", DoubleValue(19.0309)); //Tx blue
 	phy2.Set("TxPowerStart", DoubleValue(19.0309)); //Tx blue
 	//phy2.Set("TxPowerEnd", DoubleValue(40)); //Tx blue
@@ -161,7 +184,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	//phy3.Set("RtsCtsThreshold", UintegerValue(9999999999999999));
 	phy3.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	//phy3.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	phy3.Set("EnergyDetectionThreshold", DoubleValue(-79.0)); // 1­¿ // blue
+	phy3.Set("EnergyDetectionThreshold", DoubleValue(-79.0)); // 1ï¿½ï¿½ // blue
 	phy3.Set("TxPowerEnd", DoubleValue(19.0309)); //Tx blue
 	phy3.Set("TxPowerStart", DoubleValue(19.0309)); //Tx blue
 	//phy3.Set("TxPowerEnd", DoubleValue(40)); //Tx blue
@@ -274,6 +297,14 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	Ipv4GlobalRoutingHelper::PopulateRoutingTables();
 
 	Simulator::Stop(Seconds(simulationTime + 1));
+
+	// trace
+	Config::Connect(
+		"/NodeList/*/DeviceList/*/\
+		 $ns3::UdpClient/Tx",
+		MakeCallback(&TxCallBack));
+
+
 	Simulator::Run();
 
 	double throughput = 0, totalthroughput = 0, totalreceivepacket = 0, totallosspacket = 0;
