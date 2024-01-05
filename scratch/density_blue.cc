@@ -75,6 +75,7 @@ void TxCallBack(
 		Simulator::Now().GetSeconds() << " " <<
 		packet->GetSize() << " " <<
 		context);
+	NS_LOG_INFO ("TX ------------");
 }
 
 ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Address address, double simulationTime, double starttime)
@@ -300,7 +301,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 
 	// trace
 	Config::Connect(
-		"/NodeList/*/DeviceList/*/\
+		"/NodeList/0/ApplicationList/*/\
 		 $ns3::UdpClient/Tx",
 		MakeCallback(&TxCallBack));
 
