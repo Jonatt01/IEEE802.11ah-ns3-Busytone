@@ -75,7 +75,6 @@ void TxCallBack(
 		Simulator::Now().GetSeconds() << " " <<
 		packet->GetSize() << " " <<
 		context);
-	NS_LOG_INFO ("TX ------------");
 }
 
 ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Address address, double simulationTime, double starttime)
@@ -125,7 +124,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	// LogComponentEnable("UdpClient", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpEchoClientApplication", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpServer", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
-	LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	// LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// NS_LOG_INFO ("RX ");
 
 
@@ -301,10 +300,8 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 
 	// trace
 	Config::Connect(
-		"/NodeList/0/ApplicationList/*/\
-		 $ns3::UdpClient/Tx",
+		"/NodeList/*/ApplicationList/*/$ns3::UdpClient/Tx",
 		MakeCallback(&TxCallBack));
-
 
 	Simulator::Run();
 
