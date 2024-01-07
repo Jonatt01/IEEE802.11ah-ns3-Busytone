@@ -213,7 +213,9 @@ int main (int argc, char *argv[])
   outputFile.close();
   std::cout << "Position have been saved to: " << filePath << std::endl;
 
+  /*----------------------------------------------- */
   // Create Apps
+  /*----------------------------------------------- */
   uint16_t sinkPort = 6; // use the same for all apps
 
   // the vector for picking the transmitter and receiver
@@ -222,40 +224,24 @@ int main (int argc, char *argv[])
   std::iota(vec.begin(), vec.end(), 1); // fills the vector from 1 to numNodes
   std::shuffle(vec.begin(), vec.end(), std::default_random_engine(seed)); // shuffle the vector elements
   
-  // Checking
-  for(int loop = 0; loop < vec.size(); loop++)
-  {
-  std::cout << vec.at(loop) << '\t';
-
-  if (0 == (loop + 1) % 10)
-  {
-    std::cout << '\n';
-  }
-  }
-  std::cout << '\n';
-  
-  /*----------------------------------------------- */
-  // Generate numFlow flows
-  // pick nodes in order, according to the vec. 
-  /*----------------------------------------------- */
-  ApplicationContainer cbrApps; // The container for all applications
-
+  // Generate numFlow flows (pick nodes in order, according to vec)
   for(int i = 0; i < numFlows ; ++i)
   {
-    Address sinkAddress (InetSocketAddress (ifcont.GetAddress (vec[i*2]), sinkPort)); // interface of node vec[i]
+    Address sinkAddress (InetSocketAddress (ifcont.GetAddress (vec[i*2]), sinkPort)); // interface of node vec[i*2]
     PacketSinkHelper packetSinkHelper1 ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), sinkPort));
-    ApplicationContainer sinkApps = packetSinkHelper1.Install (c.Get (vec[i*2])); // node vec[i] as sink
+    ApplicationContainer sinkApps = packetSinkHelper1.Install (c.Get (vec[i*2])); // node vec[i*2] as sink
     sinkApps.Start (Seconds (0.0));
     sinkApps.Stop (Seconds (100.0));
-    std::cout << vec[i*2+1] << " to " << vec[i*2] << std::endl;
-    Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at n0
 
-    // Create UDP application at n0
+    Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at node vec[i*2+1]
+
+    // Create UDP application at vec[i*2+1]
     Ptr<MyApp> app = CreateObject<MyApp> ();
     app->Setup (ns3UdpSocket, sinkAddress, packetSize, numPackets, DataRate ("1Mbps"));
     c.Get (vec[i*2+1])->AddApplication (app);
     app->SetStartTime (Seconds (31.0));
     app->SetStopTime (Seconds (100.0));
+    std::cout << "Create the flow : node " << vec[i*2+1] << " send to " << "node " << vec[i*2] << std::endl;
   }
   /*----------------------------------------------- */
 
@@ -277,6 +263,7 @@ int main (int argc, char *argv[])
   double Avg_e2eDelaySec2 = 0.0;
   double Avg_SystemThroughput_bps2 = 0.0;
   double Avg_PDR2 = 0.0;
+  double Avg_Packet_Loss_rate2 = 0.0;
 
   int tx_packets1 = 0;
   int rx_packets1 = 0;
@@ -305,7 +292,6 @@ int main (int argc, char *argv[])
 
     if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[1],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[0],0) ) ){
       // if( t.destinationPort == sinkPort ){
-        std::cout << "hihi" << std::endl;
         Avg_e2eDelaySec1 += 
           (
             (double)iter -> second.delaySum.GetSeconds()/iter -> second.rxPackets
@@ -339,6 +325,7 @@ int main (int argc, char *argv[])
 
         tx_packets2 = iter -> second.txPackets;
         rx_packets2 = iter -> second.rxPackets;
+        Avg_Packet_Loss_rate2 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
         Avg_Base2 += 1;
       // }
     }
@@ -346,7 +333,7 @@ int main (int argc, char *argv[])
   }
 
   std::cout << "---------------------------Flow 1 statistic result---------------------------" << std::endl;
-  std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[0],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[1],0)) << std::endl;
+  std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[1],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[0],0)) << std::endl;
   std::cout << "Tx packets : " << tx_packets1 << std::endl;
   std::cout << "Rx packets : " << rx_packets1 << std::endl;
   std::cout << "Avg_PDR : " << Avg_PDR1/Avg_Base1 << std::endl;  
@@ -356,12 +343,13 @@ int main (int argc, char *argv[])
 
   // if (Avg_Base2 != 0){
     std::cout << "---------------------------Flow 2 statistic result---------------------------" << std::endl;
-    std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[2],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[3],0)) << std::endl;
+    std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[3],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[2],0)) << std::endl;
     std::cout << "Tx packets : " << tx_packets2 << std::endl;
     std::cout << "Rx packets : " << rx_packets2 << std::endl;
     std::cout << "Avg_PDR : " << Avg_PDR2/Avg_Base2 << std::endl;  
     std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps2/(Avg_Base2*1024) << " [Kbps]" << std::endl;
-    std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec2/Avg_Base2 << " [Sec]" << std::endl;  
+    std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec2/Avg_Base2 << " [Sec]" << std::endl;
+    std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate2 << " % " << std::endl;
   // }
   
 
