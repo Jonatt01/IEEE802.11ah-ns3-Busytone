@@ -259,48 +259,6 @@ int main (int argc, char *argv[])
   }
   /*----------------------------------------------- */
 
-  //flow 1
-  // UDP connection from N0 to N24
-  //  Address sinkAddress1 (InetSocketAddress (ifcont.GetAddress (vec[0]), sinkPort)); // interface of n24
-  //  PacketSinkHelper packetSinkHelper1 ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), sinkPort));
-  //  ApplicationContainer sinkApps1 = packetSinkHelper1.Install (c.Get (vec[0])); //n24 as sink
-  //  sinkApps1.Start (Seconds (0.0));
-  //  sinkApps1.Stop (Seconds (100.0));
-
-  //  Ptr<Socket> ns3UdpSocket1 = Socket::CreateSocket (c.Get (vec[1]), UdpSocketFactory::GetTypeId ()); //source at n0
-
-  //  // Create UDP application at n0
-  //  Ptr<MyApp> app1 = CreateObject<MyApp> ();
-  //  app1->Setup (ns3UdpSocket1, sinkAddress1, packetSize, numPackets, DataRate ("1Mbps"));
-  //  c.Get (vec[1])->AddApplication (app1);
-  //  app1->SetStartTime (Seconds (31.0));
-  //  app1->SetStopTime (Seconds (100.0));
-
-
-  // //flow 2
-  // // UDP connection from N20 to N4
-  // /*----------------------------------------------- */
-  // //your code
-  // /*----------------------------------------------- */
-  //  Address sinkAddress2 (InetSocketAddress (ifcont.GetAddress (4), sinkPort)); // interface of n20
-  //  PacketSinkHelper packetSinkHelper2 ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), sinkPort));
-  //  ApplicationContainer sinkApps2 = packetSinkHelper2.Install (c.Get (4)); //n2 as sink
-  //  sinkApps2.Start (Seconds (0.));
-  //  sinkApps2.Stop (Seconds (100.));
-
-  //  Ptr<Socket> ns3UdpSocket2 = Socket::CreateSocket (c.Get (20), UdpSocketFactory::GetTypeId ()); //source at n4
-
-  // // Create UDP application at n20
-  // /*----------------------------------------------- */
-  // //your code
-  // /*----------------------------------------------- */
-  //  Ptr<MyApp> app2 = CreateObject<MyApp> ();
-  //  app2->Setup (ns3UdpSocket2, sinkAddress2, packetSize, numPackets, DataRate ("1Mbps"));
-  //  c.Get (20)->AddApplication (app2);
-  //  app2->SetStartTime (Seconds (31.));
-  //  app2->SetStopTime (Seconds (100.));
-     
-
   // Install FlowMonitor on all nodes
   FlowMonitorHelper flowmon;
   Ptr<FlowMonitor> monitor = flowmon.InstallAll();
