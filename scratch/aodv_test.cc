@@ -72,7 +72,7 @@ int main (int argc, char *argv[])
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
 
@@ -85,7 +85,7 @@ int main (int argc, char *argv[])
   uint32_t numPackets = 1000;//1 vs 10000
   uint32_t numFlows = 2;  // must smaller than numNodes/2
   std::string rtslimit = "1500";  //(Default = 1000000)
-  bool printRoutingTables = false;
+  bool printRoutingTables = true;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -97,8 +97,8 @@ int main (int argc, char *argv[])
   Time interPacketInterval = Seconds (interval);
 
   // turn off RTS/CTS for frames below 2200 bytes
-  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(0));
-	// Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
+  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(15000));
+	Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
   // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
 
@@ -115,9 +115,10 @@ int main (int argc, char *argv[])
   // set it to zero; otherwise, gain will be added
   wifiPhy.Set ("RxGain", DoubleValue (-10) );
 
-  wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");
-  wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+  // error cause from these setting (if no set, routing table correct, segmentation fault; if set routing table no use, rx packet=0)
+  // wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
+  // wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
+	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
 	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
 
@@ -188,8 +189,8 @@ int main (int argc, char *argv[])
   if(printRoutingTables)
   {
     Ptr<OutputStreamWrapper> routingStream = Create<OutputStreamWrapper> (&std::cout);
-    aodv.PrintRoutingTableAt (Seconds (1.0), c.Get(13), routingStream);
-    aodv.PrintRoutingTableEvery(Seconds(10), c.Get(13), routingStream);
+    aodv.PrintRoutingTableAt (Seconds (1.0), c.Get(11), routingStream);
+    aodv.PrintRoutingTableEvery(Seconds(10), c.Get(11), routingStream);
   }
 
 
