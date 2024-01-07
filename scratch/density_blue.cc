@@ -85,6 +85,7 @@ ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Addr
 	serverApp.Stop(Seconds(simulationTime + 1));
 
 	UdpClientHelper myClient(address, 12345);
+	NS_LOG_UNCOND("+++++++++++" <<address);
 	myClient.SetAttribute("MaxPackets", UintegerValue(4294967295u));
 	myClient.SetAttribute("Interval", TimeValue(Time("0.00001"))); //packets/s
 	myClient.SetAttribute("PacketSize", UintegerValue(1472));
@@ -124,7 +125,8 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	// LogComponentEnable("UdpClient", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpEchoClientApplication", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpServer", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
-	// LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	// LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
 	// NS_LOG_INFO ("RX ");
 
 

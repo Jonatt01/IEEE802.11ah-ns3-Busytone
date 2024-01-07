@@ -72,9 +72,12 @@ int main (int argc, char *argv[])
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  
   
 
-  std::string phyMode ("DsssRate1Mbps");
+  // std::string phyMode ("DsssRate1Mbps");
+  std::string phyMode ("OfdmRate1_2MbpsBW1MHz");
   double distance = 500;  //(m)
   uint32_t numNodes = 25;  // 5x5
   double interval = 0.01; // seconds(Default = 0.001)
@@ -94,9 +97,13 @@ int main (int argc, char *argv[])
   Time interPacketInterval = Seconds (interval);
 
   // turn off RTS/CTS for frames below 2200 bytes
-  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", StringValue (rtslimit));
+  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(0));
+	// Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
-  Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
+  // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
+
+  Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (packetSize));
+  Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("1Mbps"));
 
   NodeContainer c;
   c.Create (numNodes);
@@ -106,7 +113,14 @@ int main (int argc, char *argv[])
 
   YansWifiPhyHelper wifiPhy =  YansWifiPhyHelper::Default ();
   // set it to zero; otherwise, gain will be added
-  wifiPhy.Set ("RxGain", DoubleValue (-10) ); 
+  wifiPhy.Set ("RxGain", DoubleValue (-10) );
+
+  wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");
+  wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
+	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
+
+
   // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
   // wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
 
@@ -116,8 +130,8 @@ int main (int argc, char *argv[])
   wifiPhy.SetChannel (wifiChannel.Create ());
 
   // Add a non-QoS upper mac, and disable rate control
-  NqosWifiMacHelper wifiMac = NqosWifiMacHelper::Default ();
-  wifi.SetStandard (WIFI_PHY_STANDARD_80211b);
+  S1gWifiMacHelper wifiMac = S1gWifiMacHelper::Default ();
+  wifi.SetStandard (WIFI_PHY_STANDARD_80211ah);
   wifi.SetRemoteStationManager ("ns3::ConstantRateWifiManager",
                                 "DataMode",StringValue (phyMode),
                                 "ControlMode",StringValue (phyMode));
@@ -236,12 +250,22 @@ int main (int argc, char *argv[])
     Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at node vec[i*2+1]
 
     // Create UDP application at vec[i*2+1]
-    Ptr<MyApp> app = CreateObject<MyApp> ();
-    app->Setup (ns3UdpSocket, sinkAddress, packetSize, numPackets, DataRate ("1Mbps"));
-    c.Get (vec[i*2+1])->AddApplication (app);
-    app->SetStartTime (Seconds (31.0));
-    app->SetStopTime (Seconds (100.0));
+    // Ptr<MyApp> app = CreateObject<MyApp> ();
+    // app->Setup (ns3UdpSocket, sinkAddress, packetSize, numPackets, DataRate ("1Mbps"));
+    // c.Get (vec[i*2+1])->AddApplication (app);
+    // app->SetStartTime (Seconds (31.0));
+    // app->SetStopTime (Seconds (100.0));
     std::cout << "Create the flow : node " << vec[i*2+1] << " send to " << "node " << vec[i*2] << std::endl;
+
+
+    // Create the OnOff applications to send data to the UDP receiver
+    OnOffHelper clientHelper("ns3::UdpSocketFactory", Address());
+    clientHelper.SetAttribute ("OnTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
+    clientHelper.SetAttribute ("OffTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
+    clientHelper.SetAttribute("Remote", AddressValue (sinkAddress));
+    ApplicationContainer clientApps =clientHelper.Install(c.Get (vec[i*2+1]));
+    clientApps.Start(Seconds(31.0));
+    clientApps.Stop(Seconds(100.0));
   }
   /*----------------------------------------------- */
 
@@ -336,7 +360,7 @@ int main (int argc, char *argv[])
   std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[1],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[0],0)) << std::endl;
   std::cout << "Tx packets : " << tx_packets1 << std::endl;
   std::cout << "Rx packets : " << rx_packets1 << std::endl;
-  std::cout << "Avg_PDR : " << Avg_PDR1/Avg_Base1 << std::endl;  
+  std::cout << "Avg_PDR : " << Avg_PDR1 << std::endl;  
   std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps1/(Avg_Base1*1024) << " [Kbps]" << std::endl;
   std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec1/Avg_Base1 << " [Sec]" << std::endl;
   std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate1 << " % " << std::endl;
@@ -346,7 +370,7 @@ int main (int argc, char *argv[])
     std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[3],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[2],0)) << std::endl;
     std::cout << "Tx packets : " << tx_packets2 << std::endl;
     std::cout << "Rx packets : " << rx_packets2 << std::endl;
-    std::cout << "Avg_PDR : " << Avg_PDR2/Avg_Base2 << std::endl;  
+    std::cout << "Avg_PDR : " << Avg_PDR2 << std::endl;  
     std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps2/(Avg_Base2*1024) << " [Kbps]" << std::endl;
     std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec2/Avg_Base2 << " [Sec]" << std::endl;
     std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate2 << " % " << std::endl;
