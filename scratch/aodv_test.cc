@@ -79,7 +79,7 @@ int main (int argc, char *argv[])
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1000;//1 vs 10000
   std::string rtslimit = "1500";  //(Default = 1000000)
-  bool printRoutingTables = true;
+  bool printRoutingTables = false;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -268,6 +268,7 @@ int main (int argc, char *argv[])
   double Avg_e2eDelaySec1 = 0.0;
   double Avg_SystemThroughput_bps1 = 0.0;
   double Avg_PDR1 = 0.0;
+  double Avg_Packet_Loss_rate1 = 0.0;
 
   double Avg_e2eDelaySec2 = 0.0;
   double Avg_SystemThroughput_bps2 = 0.0;
@@ -313,6 +314,7 @@ int main (int argc, char *argv[])
         Avg_PDR1 = (double)iter -> second.rxPackets / iter -> second.txPackets;
         tx_packets1 = iter -> second.txPackets;
         rx_packets1 = iter -> second.rxPackets;
+        Avg_Packet_Loss_rate1 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
         Avg_Base1 += 1;
       // }
     }
@@ -345,6 +347,7 @@ int main (int argc, char *argv[])
   std::cout << "Avg_PDR : " << Avg_PDR1/Avg_Base1 << std::endl;  
   std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps1/(Avg_Base1*1024) << " [Kbps]" << std::endl;
   std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec1/Avg_Base1 << " [Sec]" << std::endl;
+  std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate1 << " % " << std::endl;
 
   if (Avg_Base2 != 0){
     std::cout << "---------------------------Flow 2 statistic result---------------------------" << std::endl;

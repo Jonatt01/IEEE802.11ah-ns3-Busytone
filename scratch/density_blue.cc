@@ -298,10 +298,10 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 
 	Simulator::Stop(Seconds(simulationTime + 1));
 
-	// trace
-	Config::Connect(
-		"/NodeList/*/ApplicationList/*/$ns3::UdpClient/Tx",
-		MakeCallback(&TxCallBack));
+	// enable trace
+	// Config::Connect(
+	// 	"/NodeList/*/ApplicationList/*/$ns3::UdpClient/Tx",
+	// 	MakeCallback(&TxCallBack));
 
 	Simulator::Run();
 
@@ -331,7 +331,9 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	//std::cout << "  totalThroughput: " << totalthroughput  << " Mbps\n";
 	std::cout << "  totalreceivepacket: " << totalreceivepacket << std::endl;
 	std::cout << "  totallosspacket: " << totallosspacket << std::endl;
-	std::cout << "loss rate:" << float(100 * totalreceivepacket / (totalreceivepacket + totallosspacket)) << std::endl;
+	// Computation of loss rate is wrong (fixed by Jonathan)
+	// std::cout << "loss rate:" << float(100 * totalreceivepacket / (totalreceivepacket + totallosspacket)) << std::endl;
+	std::cout << "loss rate:" << float(100 * totallosspacket / (totalreceivepacket + totallosspacket)) << std::endl;
 
 	Simulator::Destroy();
 	return totalthroughput;
