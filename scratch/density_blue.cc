@@ -125,9 +125,10 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	// LogComponentEnable("UdpClient", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpEchoClientApplication", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	// LogComponentEnable("UdpServer", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
-	LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
-	// LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-	// NS_LOG_INFO ("RX ");
+	// LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
+	LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  	LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+
 
 
 	NodeContainer nodes;
@@ -226,7 +227,8 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	//NetDeviceContainer devices = wifi.Install (phy, mac, nodes);
 	phy2.Set("ChannelNumber", UintegerValue(1));
 	phy3.Set("ChannelNumber", UintegerValue(1));
-	NetDeviceContainer devices = wifi.Install(phy, mac, phy2, mac2, phy3, mac3, nodes);
+	NetDeviceContainer devices = wifi.Install(phy, mac, phy2, mac2, phy3, mac3, nodes); // original
+	// NetDeviceContainer devices = wifi.Install(phy, mac, nodes); // test if this will cause the error
 	MobilityHelper mobility;
 	Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator>();
 	int area_size = range / 25;

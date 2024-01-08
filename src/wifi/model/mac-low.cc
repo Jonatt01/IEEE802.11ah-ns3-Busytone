@@ -241,6 +241,7 @@ MacLowTransmissionParameters::MustWaitMultiTidBlockAck (void) const
 bool
 MacLowTransmissionParameters::MustSendRts (void) const
 {
+  NS_LOG_FUNCTION(this);
   return m_sendRts;
 }
 bool

@@ -72,8 +72,8 @@ int main (int argc, char *argv[])
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
 
@@ -98,7 +98,7 @@ int main (int argc, char *argv[])
   Time interPacketInterval = Seconds (interval);
 
   // turn off RTS/CTS for frames below 2200 bytes
-  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(0));
+  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(1500));
 	Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
   // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
@@ -114,32 +114,50 @@ int main (int argc, char *argv[])
 
   YansWifiPhyHelper wifiPhy =  YansWifiPhyHelper::Default ();
   // set it to zero; otherwise, gain will be added
-  wifiPhy.Set ("RxGain", DoubleValue (-10) );
+  // wifiPhy.Set ("RxGain", DoubleValue (-10) );
+  // error cause from these setting (if no set, routing table correct, segmentation fault; if set, routing table no use, rx packet=0)
+  wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
+  wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
+	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+	wifiPhy.Set("TxPowerEnd", DoubleValue(19.0309)); //Tx blue
+	wifiPhy.Set("TxPowerStart", DoubleValue(19.0309)); //Tx blue
+	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
-  // error cause from these setting (if no set, routing table correct, segmentation fault; if set routing table no use, rx packet=0)
-  // wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
-  // wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
-	// wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
-
+  YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();  
+  YansWifiPhyHelper txbt_Phy =  YansWifiPhyHelper::Default ();
 
   // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
   // wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
 
-  YansWifiChannelHelper wifiChannel;
-  wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
-  wifiChannel.AddPropagationLoss ("ns3::FriisPropagationLossModel");
+  YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();;
+  // wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
+  // wifiChannel.AddPropagationLoss ("ns3::FriisPropagationLossModel");
   wifiPhy.SetChannel (wifiChannel.Create ());
 
-  // Add a non-QoS upper mac, and disable rate control
-  S1gWifiMacHelper wifiMac = S1gWifiMacHelper::Default ();
+  YansWifiChannelHelper rxbtChannel = YansWifiChannelHelper::Default();
+  rxbt_Phy.SetChannel (rxbtChannel.Create ());
+
+  YansWifiChannelHelper txbtChannel = YansWifiChannelHelper::Default();
+  txbt_Phy.SetChannel (txbtChannel.Create ());
+
   wifi.SetStandard (WIFI_PHY_STANDARD_80211ah);
   wifi.SetRemoteStationManager ("ns3::ConstantRateWifiManager",
                                 "DataMode",StringValue (phyMode),
                                 "ControlMode",StringValue (phyMode));
-  // Set it to adhoc mode
-  wifiMac.SetType ("ns3::AdhocWifiMac");
-  NetDeviceContainer devices = wifi.Install (wifiPhy, wifiMac, c);
+
+  // Add three upper mac
+  S1gWifiMacHelper wifiMac = S1gWifiMacHelper::Default ();
+  wifiMac.SetType ("ns3::AdhocWifiMac"); // Set it to adhoc mode
+
+  S1gWifiMacHelper rxbt_Mac = S1gWifiMacHelper::Default();
+  rxbt_Mac.SetType("ns3::AdhocWifiMac");
+
+  S1gWifiMacHelper txbt_Mac = S1gWifiMacHelper::Default();
+  txbt_Mac.SetType("ns3::AdhocWifiMac");  
+
+
+  // NetDeviceContainer devices = wifi.Install (wifiPhy, wifiMac, c);
+  NetDeviceContainer devices = wifi.Install(wifiPhy, wifiMac, rxbt_Phy, rxbt_Mac, txbt_Phy, txbt_Mac, c);
 
   MobilityHelper mobility;
 
@@ -196,38 +214,38 @@ int main (int argc, char *argv[])
 
 
   // Specify the path to the CSV file in the previous folder
-  const std::string filePath = "../Python-Tools/node_position.csv";
+  // const std::string filePath = "../Python-Tools/node_position.csv";
 
   // Open the file for writing
-  std::ofstream outputFile(filePath);
+  // std::ofstream outputFile(filePath);
 
-  // Check if the file is successfully opened
-  if (!outputFile.is_open()) {
-      std::cerr << "Error opening the file." << std::endl;
-      return 1;
-  }
+  // // Check if the file is successfully opened
+  // if (!outputFile.is_open()) {
+  //     std::cerr << "Error opening the file." << std::endl;
+  //     return 1;
+  // }
 
   // Obtain the position of node i+1 (ns3 counts from zero)
-  for(int i = 0; i < numNodes; ++i)
-  {
-    Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
-    if(mob==0)
-    {
-      std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
-      return 1;
-    }
-    double x = mob->GetPosition().x;
-    double y = mob->GetPosition().y;
-    double z = mob->GetPosition().z;
+  // for(int i = 0; i < numNodes; ++i)
+  // {
+  //   Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
+  //   if(mob==0)
+  //   {
+  //     std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
+  //     return 1;
+  //   }
+  //   double x = mob->GetPosition().x;
+  //   double y = mob->GetPosition().y;
+  //   double z = mob->GetPosition().z;
 
-    // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
+  //   // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
 
-    // Write numbers to the file
-    outputFile << x << "," << y << std::endl;
-  }
+  //   // Write numbers to the file
+  //   outputFile << x << "," << y << std::endl;
+  // }
   
-  outputFile.close();
-  std::cout << "Position have been saved to: " << filePath << std::endl;
+  // outputFile.close();
+  // std::cout << "Position have been saved to: " << filePath << std::endl;
 
   /*----------------------------------------------- */
   // Create Apps
