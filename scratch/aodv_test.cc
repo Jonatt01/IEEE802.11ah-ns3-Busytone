@@ -72,7 +72,8 @@ int main (int argc, char *argv[])
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
 
@@ -97,7 +98,7 @@ int main (int argc, char *argv[])
   Time interPacketInterval = Seconds (interval);
 
   // turn off RTS/CTS for frames below 2200 bytes
-  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(15000));
+  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(0));
 	Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
   // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
@@ -119,7 +120,7 @@ int main (int argc, char *argv[])
   // wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
   // wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
-	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
+	// wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
 
   // ns-3 supports RadioTap and Prism tracing extensions for 802.11b

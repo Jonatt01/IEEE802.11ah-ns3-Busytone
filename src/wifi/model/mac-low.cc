@@ -863,20 +863,23 @@ MacLow::StartTransmission(Ptr<const Packet> packet,
     {
         m_txParams.EnableCompressedBlockAck();
     }
-
+    NS_LOG_DEBUG("start judging blue condition");
     if (m_txParams.MustSendRts() && m_phy_busy->GetState() == 2 && m_phy_busy2->GetState() == 2) //Blue condition
     {
+      NS_LOG_DEBUG("blue condition satisfies, need to send rts for packet");
       SendRtsForPacket ();
     }
   else
     {
       if (NeedCtsToSelf () && m_ctsToSelfSupported)
         {
+          NS_LOG_DEBUG("NeedCtsToSelf && m_ctsToSelfSupported");
           SendCtsToSelf ();
           SendRxBusyTone(); //Blue
         }
       else
         {
+          NS_LOG_DEBUG("SendDataPacket");
           SendDataPacket ();
         }
     }
@@ -2279,6 +2282,7 @@ MacLow::Wakeup(void) //Blue
 void
 MacLow::SendRxBusyTone(void) //Blue
 {  
+  NS_LOG_FUNCTION (this); // Jonathan
     WifiTxVector dataTxVector = GetDataTxVector(m_currentPacket_copy, &m_currentHdr);
     WifiPreamble preamble;
     
@@ -2375,7 +2379,7 @@ MacLow::IsNavZero (void) const
 void
 MacLow::SendCtsToSelf (void) //Blue
 {
-  std::cout << "CtsToSelf Called\n";
+  NS_LOG_FUNCTION(this);
   WifiMacHeader cts;
   cts.SetType (WIFI_MAC_CTL_CTS);
   cts.SetDsNotFrom ();
