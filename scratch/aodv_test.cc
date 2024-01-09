@@ -70,7 +70,7 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
@@ -86,7 +86,7 @@ int main (int argc, char *argv[])
   uint32_t numPackets = 1000;//1 vs 10000
   uint32_t numFlows = 2;  // must smaller than numNodes/2
   std::string rtslimit = "1500";  //(Default = 1000000)
-  bool printRoutingTables = true;
+  bool printRoutingTables = false;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -284,7 +284,7 @@ int main (int argc, char *argv[])
     clientHelper.SetAttribute ("OffTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
     clientHelper.SetAttribute("Remote", AddressValue (sinkAddress));
     ApplicationContainer clientApps =clientHelper.Install(c.Get (vec[i*2+1]));
-    clientApps.Start(Seconds(31.0));
+    clientApps.Start(Seconds(90.0));
     clientApps.Stop(Seconds(100.0));
   }
   /*----------------------------------------------- */
