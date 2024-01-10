@@ -6,6 +6,7 @@
 #include "ns3/ipv4-global-routing-helper.h"
 #include "ns3/internet-module.h"
 #include "ns3/flow-monitor-module.h"
+#include "ns3/aodv-module.h"
 #include <stdlib.h>
 #include <time.h>
 #include <fstream>
@@ -86,7 +87,7 @@ ApplicationContainer gencbr(NodeContainer server, NodeContainer client, Ipv4Addr
 
 	UdpClientHelper myClient(address, 12345);
 	NS_LOG_UNCOND("+++++++++++" <<address);
-	myClient.SetAttribute("MaxPackets", UintegerValue(4294967295u));
+	myClient.SetAttribute("MaxPackets", UintegerValue(1500)); // 4294967295u
 	myClient.SetAttribute("Interval", TimeValue(Time("0.00001"))); //packets/s
 	myClient.SetAttribute("PacketSize", UintegerValue(1472));
 
@@ -264,7 +265,14 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
 	mobility.Install(nodes);
 
+  AodvHelper aodv;
+    Ipv4ListRoutingHelper list;
+	  list.Add (aodv, 10);//install Protocol to node
+
 	InternetStackHelper internet;
+
+	   internet.SetRoutingHelper (list);
+
 	internet.Install(nodes);
 	Ipv4AddressHelper ipv4;
 	ipv4.SetBase("10.0.0.0", "255.0.0.0");

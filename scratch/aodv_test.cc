@@ -70,10 +70,10 @@ using namespace ns3;
 int main (int argc, char *argv[])
 {
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  // LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   LogComponentEnable("Lab4", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
@@ -86,7 +86,7 @@ int main (int argc, char *argv[])
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1000;//1 vs 10000
   uint32_t numFlows = 2;  // must smaller than numNodes/2
-  std::string rtslimit = "1500";  //(Default = 1000000)
+  std::string rtslimit = "0";  //(Default = 1000000)
   bool printRoutingTables = false;
   CommandLine cmd;
 
@@ -100,13 +100,13 @@ int main (int argc, char *argv[])
 
   // turn off RTS/CTS for frames below 2200 bytes
   Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", StringValue(rtslimit));
-	NS_LOG_DEBUG("RtsCtsThreshold" << rtslimit);
+	NS_LOG_DEBUG("RtsCtsThreshold : " << rtslimit);
   Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
   // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
 
-  Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (packetSize));
-  Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("1Mbps"));
+  // Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (packetSize));
+  // Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("1Mbps"));
 
   NodeContainer c;
   c.Create (numNodes);
@@ -121,12 +121,24 @@ int main (int argc, char *argv[])
   wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
   wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
-	wifiPhy.Set("TxPowerEnd", DoubleValue(19.0309)); //Tx blue
-	wifiPhy.Set("TxPowerStart", DoubleValue(19.0309)); //Tx blue
 	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
-  YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();  
+  YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();
+	rxbt_Phy.SetErrorRateModel("ns3::YansErrorRateModel");
+	rxbt_Phy.Set("CcaMode1Threshold", DoubleValue(-82.0));
+	rxbt_Phy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+	rxbt_Phy.Set("TxPowerEnd", DoubleValue(19.0309));
+	rxbt_Phy.Set("TxPowerStart", DoubleValue(19.0309));
+	rxbt_Phy.Set("S1g1MfieldEnabled", BooleanValue(true));
+
+
   YansWifiPhyHelper txbt_Phy =  YansWifiPhyHelper::Default ();
+	rxbt_Phy.SetErrorRateModel("ns3::YansErrorRateModel");
+	rxbt_Phy.Set("CcaMode1Threshold", DoubleValue(-82.0));
+	rxbt_Phy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+	rxbt_Phy.Set("TxPowerEnd", DoubleValue(19.0309));
+	rxbt_Phy.Set("TxPowerStart", DoubleValue(19.0309));
+	rxbt_Phy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
   // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
   // wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
@@ -252,7 +264,7 @@ int main (int argc, char *argv[])
   /*----------------------------------------------- */
   // Create Apps
   /*----------------------------------------------- */
-  uint16_t sinkPort = 6; // use the same for all apps
+  // uint16_t sinkPort = 6; // use the same for all apps
 
   // the vector for picking the transmitter and receiver
   unsigned seed = 1;
@@ -263,13 +275,19 @@ int main (int argc, char *argv[])
   // Generate numFlow flows (pick nodes in order, according to vec)
   for(int i = 0; i < numFlows ; ++i)
   {
-    Address sinkAddress (InetSocketAddress (ifcont.GetAddress (vec[i*2]), sinkPort)); // interface of node vec[i*2]
-    PacketSinkHelper packetSinkHelper1 ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), sinkPort));
-    ApplicationContainer sinkApps = packetSinkHelper1.Install (c.Get (vec[i*2])); // node vec[i*2] as sink
-    sinkApps.Start (Seconds (0.0));
-    sinkApps.Stop (Seconds (100.0));
+    // Address sinkAddress (InetSocketAddress (ifcont.GetAddress (vec[i*2]), sinkPort)); // interface of node vec[i*2]
+    // PacketSinkHelper packetSinkHelper1 ("ns3::UdpSocketFactory", InetSocketAddress (Ipv4Address::GetAny (), sinkPort));
+    // ApplicationContainer sinkApps = packetSinkHelper1.Install (c.Get (vec[i*2])); // node vec[i*2] as sink
+    // sinkApps.Start (Seconds (0.0));
+    // sinkApps.Stop (Seconds (100.0));
 
-    Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at node vec[i*2+1]
+    
+    UdpServerHelper serverHelper(12345); 
+    ApplicationContainer serverApp = serverHelper.Install(c.Get (vec[i*2]));
+    serverApp.Start(Seconds(0.0));
+    serverApp.Stop(Seconds(100.0));  
+
+    // Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at node vec[i*2+1]
 
     // Create UDP application at vec[i*2+1]
     // Ptr<MyApp> app = CreateObject<MyApp> ();
@@ -281,12 +299,19 @@ int main (int argc, char *argv[])
 
 
     // Create the OnOff applications to send data to the UDP receiver
-    OnOffHelper clientHelper("ns3::UdpSocketFactory", Address());
-    clientHelper.SetAttribute ("OnTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
-    clientHelper.SetAttribute ("OffTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
-    clientHelper.SetAttribute("Remote", AddressValue (sinkAddress));
-    ApplicationContainer clientApps =clientHelper.Install(c.Get (vec[i*2+1]));
-    clientApps.Start(Seconds(90.0));
+    // OnOffHelper clientHelper("ns3::UdpSocketFactory", Address());
+    // clientHelper.SetAttribute ("OnTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
+    // clientHelper.SetAttribute ("OffTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
+    // clientHelper.SetAttribute("Remote", AddressValue (sinkAddress));
+
+    UdpClientHelper clientHelper( ifcont.GetAddress (vec[i*2]) , 12345);
+    NS_LOG_UNCOND("sinkAddress : " << ifcont.GetAddress (vec[i*2]));
+    clientHelper.SetAttribute("MaxPackets", UintegerValue(15000));
+    clientHelper.SetAttribute("Interval", TimeValue(Time("0.001"))); //packets/s
+    clientHelper.SetAttribute("PacketSize", UintegerValue(1472));
+
+    ApplicationContainer clientApps = clientHelper.Install(c.Get (vec[i*2+1]));
+    clientApps.Start(Seconds(10.0));
     clientApps.Stop(Seconds(100.0));
   }
   /*----------------------------------------------- */

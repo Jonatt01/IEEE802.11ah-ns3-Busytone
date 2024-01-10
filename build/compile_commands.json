@@ -420,11 +420,6 @@
     "file": "../src/core/model/double.cc"
   }, 
   {
-    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/lte/helper/mac-stats-calculator.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/lte/helper/mac-stats-calculator.cc.1.o", 
-    "file": "../src/lte/helper/mac-stats-calculator.cc"
-  }, 
-  {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/internet/model/tcp-rx-buffer.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/internet/model/tcp-rx-buffer.cc.1.o", 
     "file": "../src/internet/model/tcp-rx-buffer.cc"
@@ -670,11 +665,6 @@
     "file": "../src/propagation/model/jakes-process.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/network/model/nix-vector.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/network/model/nix-vector.cc.1.o", 
-    "file": "../src/network/model/nix-vector.cc"
-  }, 
-  {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/wave/model/vsa-manager.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/wave/model/vsa-manager.cc.1.o", 
     "file": "../src/wave/model/vsa-manager.cc"
@@ -778,6 +768,11 @@
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -Isrc/olsr -I../src/olsr -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/olsr/model/olsr-routing-protocol.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/olsr/model/olsr-routing-protocol.cc.1.o", 
     "file": "../src/olsr/model/olsr-routing-protocol.cc"
+  }, 
+  {
+    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/rca/SimulationEventManager.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/rca/SimulationEventManager.cc.6.o", 
+    "file": "../scratch/rca/SimulationEventManager.cc"
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
@@ -1013,6 +1008,11 @@
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/test/TCPIPCameraServer.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/test/TCPIPCameraServer.cc.5.o", 
     "file": "../scratch/test/TCPIPCameraServer.cc"
+  }, 
+  {
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/mesh/model/dot11s/dot11s-mac-header.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/mesh/model/dot11s/dot11s-mac-header.cc.1.o", 
+    "file": "../src/mesh/model/dot11s/dot11s-mac-header.cc"
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
@@ -1251,6 +1251,11 @@
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wimax/model/snr-to-block-error-rate-record.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wimax/model/snr-to-block-error-rate-record.cc.1.o", 
+    "file": "../src/wimax/model/snr-to-block-error-rate-record.cc"
+  }, 
+  {
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/applications/model/radvd-interface.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/applications/model/radvd-interface.cc.1.o", 
     "file": "../src/applications/model/radvd-interface.cc"
   }, 
@@ -1266,7 +1271,7 @@
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/aodv_test.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/aodv_test.cc.4.o", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/aodv_test.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/aodv_test.cc.3.o", 
     "file": "../scratch/aodv_test.cc"
   }, 
   {
@@ -1295,9 +1300,9 @@
     "file": "../src/uan/model/uan-noise-model-default.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wimax/model/bs-scheduler-simple.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wimax/model/bs-scheduler-simple.cc.1.o", 
-    "file": "../src/wimax/model/bs-scheduler-simple.cc"
+    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/lte/helper/point-to-point-epc-helper.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/lte/helper/point-to-point-epc-helper.cc.1.o", 
+    "file": "../src/lte/helper/point-to-point-epc-helper.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -1346,8 +1351,8 @@
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wimax/model/snr-to-block-error-rate-record.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wimax/model/snr-to-block-error-rate-record.cc.1.o", 
-    "file": "../src/wimax/model/snr-to-block-error-rate-record.cc"
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/network/model/nix-vector.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/network/model/nix-vector.cc.1.o", 
+    "file": "../src/network/model/nix-vector.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -1453,6 +1458,11 @@
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 ../src/wifi/model/nist-error-rate-model.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/wifi/model/nist-error-rate-model.cc.1.o", 
     "file": "../src/wifi/model/nist-error-rate-model.cc"
+  }, 
+  {
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/mesh/helper/flame/flame-installer.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/mesh/helper/flame/flame-installer.cc.1.o", 
+    "file": "../src/mesh/helper/flame/flame-installer.cc"
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
@@ -1608,11 +1618,6 @@
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/internet/model/ipv6-packet-filter.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/internet/model/ipv6-packet-filter.cc.1.o", 
     "file": "../src/internet/model/ipv6-packet-filter.cc"
-  }, 
-  {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wifi/model/aarf-wifi-manager.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wifi/model/aarf-wifi-manager.cc.1.o", 
-    "file": "../src/wifi/model/aarf-wifi-manager.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -1790,11 +1795,6 @@
     "file": "../src/applications/model/tcp-client.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 ../src/core/model/hash-murmur3.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/core/model/hash-murmur3.cc.1.o", 
-    "file": "../src/core/model/hash-murmur3.cc"
-  }, 
-  {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
     "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/lte/model/lte-rlc-um.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/lte/model/lte-rlc-um.cc.1.o", 
     "file": "../src/lte/model/lte-rlc-um.cc"
@@ -1831,8 +1831,8 @@
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/mesh/helper/flame/flame-installer.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/mesh/helper/flame/flame-installer.cc.1.o", 
-    "file": "../src/mesh/helper/flame/flame-installer.cc"
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wifi/model/aarf-wifi-manager.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wifi/model/aarf-wifi-manager.cc.1.o", 
+    "file": "../src/wifi/model/aarf-wifi-manager.cc"
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
@@ -2785,9 +2785,9 @@
     "file": "../src/lte/model/lte-ue-phy-sap.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/lte/model/lte-enb-phy-sap.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/lte/model/lte-enb-phy-sap.cc.1.o", 
-    "file": "../src/lte/model/lte-enb-phy-sap.cc"
+    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 ../src/wifi/model/qos-utils.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/wifi/model/qos-utils.cc.1.o", 
+    "file": "../src/wifi/model/qos-utils.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -3126,7 +3126,7 @@
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/third.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/third.cc.8.o", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/third.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/third.cc.10.o", 
     "file": "../scratch/third.cc"
   }, 
   {
@@ -3395,9 +3395,9 @@
     "file": "../src/core/model/random-variable-stream.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/mesh/model/dot11s/dot11s-mac-header.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/mesh/model/dot11s/dot11s-mac-header.cc.1.o", 
-    "file": "../src/mesh/model/dot11s/dot11s-mac-header.cc"
+    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/lte/helper/mac-stats-calculator.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/lte/helper/mac-stats-calculator.cc.1.o", 
+    "file": "../src/lte/helper/mac-stats-calculator.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -3430,13 +3430,13 @@
     "file": "../src/internet/model/ipv4-interface-address.cc"
   }, 
   {
-    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/rca/SimulationEventManager.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/rca/SimulationEventManager.cc.6.o", 
-    "file": "../scratch/rca/SimulationEventManager.cc"
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 ../src/core/model/hash-murmur3.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/core/model/hash-murmur3.cc.1.o", 
+    "file": "../src/core/model/hash-murmur3.cc"
   }, 
   {
-    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -Isrc/aodv -I../src/aodv -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/aodv/model/aodv-routing-protocol.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/aodv/model/aodv-routing-protocol.cc.1.o", 
+    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -Isrc/aodv -I../src/aodv -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/aodv/model/aodv-routing-protocol.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/aodv/model/aodv-routing-protocol.cc.1.o", 
     "file": "../src/aodv/model/aodv-routing-protocol.cc"
   }, 
   {
@@ -3491,7 +3491,7 @@
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/density_blue.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/density_blue.cc.1.o", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/density_blue.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/density_blue.cc.6.o", 
     "file": "../scratch/density_blue.cc"
   }, 
   {
@@ -3631,7 +3631,7 @@
   }, 
   {
     "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/aodv_routing.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/aodv_routing.cc.2.o", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../scratch/aodv_routing.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/scratch/aodv_routing.cc.9.o", 
     "file": "../scratch/aodv_routing.cc"
   }, 
   {
@@ -3685,9 +3685,9 @@
     "file": "../src/network/utils/crc32.cc"
   }, 
   {
-    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 -DHAVE_LIBXML2=1 ../src/lte/helper/point-to-point-epc-helper.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/lte/helper/point-to-point-epc-helper.cc.1.o", 
-    "file": "../src/lte/helper/point-to-point-epc-helper.cc"
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 ../src/wimax/model/bs-scheduler-simple.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/wimax/model/bs-scheduler-simple.cc.1.o", 
+    "file": "../src/wimax/model/bs-scheduler-simple.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
@@ -4065,9 +4065,9 @@
     "file": "../src/internet/helper/ipv4-list-routing-helper.cc"
   }, 
   {
-    "directory": "/home/jonathan/IEEE802.11ah-ns3-Busytone/build", 
-    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -I. -I.. -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_SQLITE3=1 ../src/wifi/model/qos-utils.cc -c -o /home/jonathan/IEEE802.11ah-ns3-Busytone/build/src/wifi/model/qos-utils.cc.1.o", 
-    "file": "../src/wifi/model/qos-utils.cc"
+    "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
+    "command": "/usr/bin/g++ -std=c++11 -std=c++11 -fPIC -pthread -pthread -I. -I.. -I/usr/include/gtk-2.0 -I/usr/lib/x86_64-linux-gnu/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libmount -I/usr/include/blkid -I/usr/include/fribidi -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/harfbuzz -I/usr/include/glib-2.0 -I/usr/lib/x86_64-linux-gnu/glib-2.0/include -I/usr/include/uuid -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/libxml2 -DNS3_BUILD_PROFILE_DEBUG -DNS3_ASSERT_ENABLE -DNS3_LOG_ENABLE -DHAVE_SYS_IOCTL_H=1 -DHAVE_IF_NETS_H=1 -DHAVE_NET_ETHERNET_H=1 -DHAVE_PACKET_H=1 -DHAVE_IF_TUN_H=1 -DHAVE_GSL=1 -DHAVE_SQLITE3=1 -DHAVE_GTK2=1 -DHAVE_LIBXML2=1 ../src/lte/model/lte-enb-phy-sap.cc -c -o /home/blue/IEEE-802.11ah-ns-3/build/src/lte/model/lte-enb-phy-sap.cc.1.o", 
+    "file": "../src/lte/model/lte-enb-phy-sap.cc"
   }, 
   {
     "directory": "/home/blue/IEEE-802.11ah-ns-3/build", 
