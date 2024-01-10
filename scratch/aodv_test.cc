@@ -74,6 +74,7 @@ int main (int argc, char *argv[])
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("Lab4", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
 
@@ -98,8 +99,9 @@ int main (int argc, char *argv[])
   Time interPacketInterval = Seconds (interval);
 
   // turn off RTS/CTS for frames below 2200 bytes
-  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", UintegerValue(1500));
-	Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
+  Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", StringValue(rtslimit));
+	NS_LOG_DEBUG("RtsCtsThreshold" << rtslimit);
+  Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
   // Fix non-unicast data rate to be the same as that of unicast
   // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
 
@@ -200,7 +202,7 @@ int main (int argc, char *argv[])
   internet.Install (c);
 
   Ipv4AddressHelper ipv4;
-  NS_LOG_INFO ("Assign IP Addresses.");
+  // NS_LOG_INFO ("Assign IP Addresses.");
   ipv4.SetBase ("10.1.1.0", "255.255.255.0");//給予ipv4address
   Ipv4InterfaceContainer ifcont = ipv4.Assign (devices);
 
