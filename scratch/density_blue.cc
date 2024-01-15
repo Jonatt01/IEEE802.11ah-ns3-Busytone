@@ -129,7 +129,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	// LogComponentEnable("Density", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE)); //Jonathan
 	LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   	LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-
+	LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
 
 
 	NodeContainer nodes;
@@ -231,6 +231,7 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 	NetDeviceContainer devices = wifi.Install(phy, mac, phy2, mac2, phy3, mac3, nodes); // original
 	// NetDeviceContainer devices = wifi.Install(phy, mac, nodes); // test if this will cause the error
 	MobilityHelper mobility;
+
 	Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator>();
 	int area_size = range / 25;
 	int area_y = range / (nodeNum / 50);
@@ -262,16 +263,39 @@ double run(double simulationTime, double range, double radius, int nodeNum, doub
 		positionAlloc->Add(Vector(x1, y1, 0.0));
 	}
 	mobility.SetPositionAllocator(positionAlloc);
+
+  /*----------------------------------------------- */
+  // random topology
+  // set position allocator
+  /*----------------------------------------------- */
+//   double min = 0.0;
+//   double max = 2000.0; // length of square side
+  
+//   Ptr<UniformRandomVariable> uniform_rv = CreateObject<UniformRandomVariable>();
+//   uniform_rv->SetAttribute ("Min", DoubleValue (min));
+//   uniform_rv->SetAttribute ("Max", DoubleValue (max));
+
+// 	Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator>();
+//   for(int i=0; i < nodeNum; ++i)
+//   {
+//     Ptr<MobilityModel> mob = nodes.Get(i)->GetObject<MobilityModel>();
+//     double x_pos = uniform_rv->GetValue (); // within the range [min, max)
+//     double y_pos = uniform_rv->GetValue (); // within the range [min, max)
+
+// 		positionAlloc->Add(Vector(x_pos, y_pos, 0.0));
+// 	}
+// 	mobility.SetPositionAllocator(positionAlloc);
+  /*----------------------------------------------- */
+
 	mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
 	mobility.Install(nodes);
 
-  AodvHelper aodv;
+ 	AodvHelper aodv;
     Ipv4ListRoutingHelper list;
-	  list.Add (aodv, 10);//install Protocol to node
+	list.Add (aodv, 10);//install Protocol to node
 
 	InternetStackHelper internet;
-
-	   internet.SetRoutingHelper (list);
+	internet.SetRoutingHelper (list);
 
 	internet.Install(nodes);
 	Ipv4AddressHelper ipv4;

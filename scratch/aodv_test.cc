@@ -16,31 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  */
-
-
-
-/*
-	LAB Assignment #4
-
-	Solution by: Konstantinos Katsaros (K.Katsaros@surrey.ac.uk)
-	based on wifi-simple-adhoc-grid.cc
-*/
-
-// The default layout is like this, on a 2-D grid.
-//
-// n20  n21  n22  n23  n24
-// n15  n16  n17  n18  n19
-// n10  n11  n12  n13  n14
-// n5   n6   n7   n8   n9
-// n0   n1   n2   n3   n4
-//
-// the layout is affected by the parameters given to GridPositionAllocator;
-// by default, GridWidth is 5 and numNodes is 25..
-//
-// Flow 1: 0->24
-// Flow 2: 20->4
-
-
 #include "ns3/core-module.h"
 #include "ns3/network-module.h"
 #include "ns3/mobility-module.h"
@@ -61,7 +36,7 @@
 #include <numeric>
 #include <random>
 
-NS_LOG_COMPONENT_DEFINE ("Lab4");
+NS_LOG_COMPONENT_DEFINE ("AodvTesting");
 
 using namespace ns3;
 
@@ -74,7 +49,7 @@ int main (int argc, char *argv[])
   // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("Lab4", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  LogComponentEnable("AodvTesting", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
 
@@ -98,7 +73,7 @@ int main (int argc, char *argv[])
   // Convert to time object
   Time interPacketInterval = Seconds (interval);
 
-  // turn off RTS/CTS for frames below 2200 bytes
+
   Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", StringValue(rtslimit));
 	NS_LOG_DEBUG("RtsCtsThreshold : " << rtslimit);
   Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
@@ -120,7 +95,8 @@ int main (int argc, char *argv[])
   // error cause from these setting (if no set, routing table correct, segmentation fault; if set, routing table no use, rx packet=0)
   wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
   wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+  wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-999999.0));
 	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
   YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();
@@ -202,9 +178,7 @@ int main (int argc, char *argv[])
   mobility.Install (c);
 
   // Enable Routing Protocol (AODV/DSDV)
-  OlsrHelper olsr;
   AodvHelper aodv;
-  DsdvHelper dsdv;
 
   Ipv4ListRoutingHelper list;
   list.Add (aodv, 10);//install Protocol to node
@@ -306,8 +280,8 @@ int main (int argc, char *argv[])
 
     UdpClientHelper clientHelper( ifcont.GetAddress (vec[i*2]) , 12345);
     NS_LOG_UNCOND("sinkAddress : " << ifcont.GetAddress (vec[i*2]));
-    clientHelper.SetAttribute("MaxPackets", UintegerValue(15000));
-    clientHelper.SetAttribute("Interval", TimeValue(Time("0.001"))); //packets/s
+    clientHelper.SetAttribute("MaxPackets", UintegerValue(1000));
+    clientHelper.SetAttribute("Interval", TimeValue(Time("0.1"))); //packets/s
     clientHelper.SetAttribute("PacketSize", UintegerValue(1472));
 
     ApplicationContainer clientApps = clientHelper.Install(c.Get (vec[i*2+1]));
