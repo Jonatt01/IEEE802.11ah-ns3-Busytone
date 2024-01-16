@@ -55,20 +55,20 @@ int main (int argc, char *argv[])
 
   // std::string phyMode ("DsssRate1Mbps");
   std::string phyMode ("OfdmRate1_2MbpsBW1MHz");
-  double distance = 500;  //(m)
+  double sideLength = 500.0;  //(m)
   uint32_t numNodes = 25;  // 5x5
   double interval = 0.01; // seconds(Default = 0.001)
   uint32_t packetSize = 500; // bytes(Default = 600)
   uint32_t numPackets = 1000;//1 vs 10000
-  uint32_t numFlows = 2;  // must smaller than numNodes/2
+  uint32_t numFlows = 3;  // must smaller than numNodes/2
   std::string rtslimit = "0";  //(Default = 1000000)
   double simulationTime = 100.0;
   bool printRoutingTables = false;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
-  cmd.AddValue ("distance", "distance (m)", distance);
-  cmd.AddValue ("packetSize", "distance (m)", packetSize);
+  cmd.AddValue ("sideLength", "Side length of the area (m)", sideLength);
+  cmd.AddValue ("packetSize", "Packet Size", packetSize);
   cmd.AddValue ("rtslimit", "RTS/CTS Threshold (bytes)", rtslimit);
   cmd.Parse (argc, argv);
   // Convert to time object
@@ -116,8 +116,6 @@ int main (int argc, char *argv[])
 	rxbt_Phy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();;
-  // wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
-  // wifiChannel.AddPropagationLoss ("ns3::FriisPropagationLossModel");
   wifiPhy.SetChannel (wifiChannel.Create ());
 
   YansWifiChannelHelper rxbtChannel = YansWifiChannelHelper::Default();
@@ -150,11 +148,10 @@ int main (int argc, char *argv[])
   // set position allocator
   /*----------------------------------------------- */
   double min = 0.0;
-  double max = 2000.0; // length of square side
   
   Ptr<UniformRandomVariable> uniform_rv = CreateObject<UniformRandomVariable>();
   uniform_rv->SetAttribute ("Min", DoubleValue (min));
-  uniform_rv->SetAttribute ("Max", DoubleValue (max));
+  uniform_rv->SetAttribute ("Max", DoubleValue (sideLength));
 
 	Ptr<ListPositionAllocator> positionAlloc = CreateObject<ListPositionAllocator>();
   for(int i=0; i < numNodes; ++i)
@@ -186,7 +183,7 @@ int main (int argc, char *argv[])
   ipv4.SetBase ("10.1.1.0", "255.255.255.0");//給予ipv4address
   Ipv4InterfaceContainer ifcont = ipv4.Assign (devices);
 
-  // print the specific node's routing table e.g., node 13
+  // print the specific node's routing table e.g., node 12
   if(printRoutingTables)
   {
     Ptr<OutputStreamWrapper> routingStream = Create<OutputStreamWrapper> (&std::cout);
@@ -196,38 +193,38 @@ int main (int argc, char *argv[])
 
 
   // Specify the path to the CSV file in the previous folder
-  const std::string filePath = "../Python-Tools/node_position.csv";
+  // const std::string filePath = "../Python-Tools/node_position.csv";
 
-  // Open the file for writing
-  std::ofstream outputFile(filePath);
+  // // Open the file for writing
+  // std::ofstream outputFile(filePath);
 
-  // Check if the file is successfully opened
-  if (!outputFile.is_open()) {
-      std::cerr << "Error opening the file." << std::endl;
-      return 1;
-  }
+  // // Check if the file is successfully opened
+  // if (!outputFile.is_open()) {
+  //     std::cerr << "Error opening the file." << std::endl;
+  //     return 1;
+  // }
 
-  // Obtain the position of node i+1 (ns3 counts from zero)
-  for(int i = 0; i < numNodes; ++i)
-  {
-    Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
-    if(mob==0)
-    {
-      std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
-      return 1;
-    }
-    double x = mob->GetPosition().x;
-    double y = mob->GetPosition().y;
-    double z = mob->GetPosition().z;
+  // // Obtain the position of node i+1 (ns3 counts from zero)
+  // for(int i = 0; i < numNodes; ++i)
+  // {
+  //   Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
+  //   if(mob==0)
+  //   {
+  //     std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
+  //     return 1;
+  //   }
+  //   double x = mob->GetPosition().x;
+  //   double y = mob->GetPosition().y;
+  //   double z = mob->GetPosition().z;
 
-    // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
+  //   // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
 
-    // Write numbers to the file
-    outputFile << x << "," << y << std::endl;
-  }
+  //   // Write numbers to the file
+  //   outputFile << x << "," << y << std::endl;
+  // }
   
-  // outputFile.close();
-  std::cout << "Position have been saved to: " << filePath << std::endl;
+  // // outputFile.close();
+  // std::cout << "Position have been saved to: " << filePath << std::endl;
 
   /*----------------------------------------------- */
   // Create Apps
@@ -269,7 +266,7 @@ int main (int argc, char *argv[])
     // c.Get (vec[i*2+1])->AddApplication (app);
     // app->SetStartTime (Seconds (31.0));
     // app->SetStopTime (Seconds (100.0));
-    std::cout << "Create the flow : node " << vec[i*2+1] << " send to " << "node " << vec[i*2] << std::endl;
+    NS_LOG_DEBUG("Create the flow : node " << vec[i*2+1] << " send to " << "node " << vec[i*2]);
 
 
     // Create the OnOff applications to send data to the UDP receiver
@@ -280,9 +277,9 @@ int main (int argc, char *argv[])
 
     UdpClientHelper clientHelper( ifcont.GetAddress (vec[i*2]) , sinkPort);
     NS_LOG_UNCOND("sinkAddress : " << ifcont.GetAddress (vec[i*2]));
-    clientHelper.SetAttribute("MaxPackets", UintegerValue(1000));
+    clientHelper.SetAttribute("MaxPackets", UintegerValue(numPackets));
     clientHelper.SetAttribute("Interval", TimeValue(Time("0.1"))); //packets/s
-    clientHelper.SetAttribute("PacketSize", UintegerValue(1472));
+    clientHelper.SetAttribute("PacketSize", UintegerValue(packetSize));
 
     ApplicationContainer clientApps = clientHelper.Install(c.Get (vec[i*2+1]));
     clientApps.Start(Seconds(clientStartTime));
@@ -374,7 +371,26 @@ int main (int argc, char *argv[])
         Avg_Base2 += 1;
       // }
     }
-  
+    // else if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[5],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[4],0) ) ){
+    //   // if( t.destinationPort == sinkPort ){
+    //     Avg_e2eDelaySec2 += 
+    //       (
+    //         (double)iter -> second.delaySum.GetSeconds()/iter -> second.rxPackets
+    //       );
+
+    //     Avg_SystemThroughput_bps2 +=
+    //       ( 
+    //         (double)iter -> second.rxBytes*8/(iter -> second.timeLastRxPacket.GetSeconds() - iter -> second.timeFirstTxPacket.GetSeconds())
+    //       );
+
+    //     Avg_PDR2 = (double)iter -> second.rxPackets / iter -> second.txPackets;
+
+    //     tx_packets2 = iter -> second.txPackets;
+    //     rx_packets2 = iter -> second.rxPackets;
+    //     Avg_Packet_Loss_rate2 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
+    //     Avg_Base2 += 1;
+    //   // }
+    // }
   }
 
   std::cout << "---------------------------Flow 1 statistic result---------------------------" << std::endl;

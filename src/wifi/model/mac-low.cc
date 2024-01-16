@@ -864,13 +864,12 @@ MacLow::StartTransmission(Ptr<const Packet> packet,
     {
         m_txParams.EnableCompressedBlockAck();
     }
-    NS_LOG_DEBUG("start judging blue condition");
     if (m_txParams.MustSendRts() && m_phy_busy->GetState() == 2 && m_phy_busy2->GetState() == 2) //Blue condition
     {
-      NS_LOG_DEBUG("blue condition satisfies, need to send rts for packet");
+      NS_LOG_DEBUG("Two busytone channel are idle, need to send RTS.");
       SendRtsForPacket ();
     }
-  else
+    else
     {
       if (NeedCtsToSelf () && m_ctsToSelfSupported)
         {
