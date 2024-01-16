@@ -47,8 +47,8 @@ int main (int argc, char *argv[])
   // LogComponentEnableAll(LogLevel(LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("AodvRoutingTable", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   // LogComponentEnable("DcaTxop", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
-  LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("AodvRoutingProtocol", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
+  // LogComponentEnable("MacLow", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   LogComponentEnable("AodvTesting", LogLevel(LOG_LEVEL_ALL | LOG_PREFIX_TIME | LOG_PREFIX_FUNC | LOG_PREFIX_NODE));
   
   
@@ -62,6 +62,7 @@ int main (int argc, char *argv[])
   uint32_t numPackets = 1000;//1 vs 10000
   uint32_t numFlows = 2;  // must smaller than numNodes/2
   std::string rtslimit = "0";  //(Default = 1000000)
+  double simulationTime = 100.0;
   bool printRoutingTables = false;
   CommandLine cmd;
 
@@ -77,8 +78,6 @@ int main (int argc, char *argv[])
   Config::SetDefault ("ns3::WifiRemoteStationManager::RtsCtsThreshold", StringValue(rtslimit));
 	NS_LOG_DEBUG("RtsCtsThreshold : " << rtslimit);
   Config::SetDefault("ns3::WifiRemoteStationManager::FragmentationThreshold", UintegerValue(999999));
-  // Fix non-unicast data rate to be the same as that of unicast
-  // Config::SetDefault ("ns3::WifiRemoteStationManager::NonUnicastMode", StringValue (phyMode));
 
   // Config::SetDefault ("ns3::OnOffApplication::PacketSize", UintegerValue (packetSize));
   // Config::SetDefault ("ns3::OnOffApplication::DataRate", StringValue ("1Mbps"));
@@ -96,7 +95,7 @@ int main (int argc, char *argv[])
   wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
   wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
-  wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-999999.0));
+  wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-999.0));
 	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
   YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();
@@ -115,9 +114,6 @@ int main (int argc, char *argv[])
 	rxbt_Phy.Set("TxPowerEnd", DoubleValue(19.0309));
 	rxbt_Phy.Set("TxPowerStart", DoubleValue(19.0309));
 	rxbt_Phy.Set("S1g1MfieldEnabled", BooleanValue(true));
-
-  // ns-3 supports RadioTap and Prism tracing extensions for 802.11b
-  // wifiPhy.SetPcapDataLinkType (YansWifiPhyHelper::DLT_IEEE802_11_RADIO); 
 
   YansWifiChannelHelper wifiChannel = YansWifiChannelHelper::Default();;
   // wifiChannel.SetPropagationDelay ("ns3::ConstantSpeedPropagationDelayModel");
@@ -145,8 +141,6 @@ int main (int argc, char *argv[])
   S1gWifiMacHelper txbt_Mac = S1gWifiMacHelper::Default();
   txbt_Mac.SetType("ns3::AdhocWifiMac");  
 
-
-  // NetDeviceContainer devices = wifi.Install (wifiPhy, wifiMac, c);
   NetDeviceContainer devices = wifi.Install(wifiPhy, wifiMac, rxbt_Phy, rxbt_Mac, txbt_Phy, txbt_Mac, c);
 
   MobilityHelper mobility;
@@ -202,43 +196,43 @@ int main (int argc, char *argv[])
 
 
   // Specify the path to the CSV file in the previous folder
-  // const std::string filePath = "../Python-Tools/node_position.csv";
+  const std::string filePath = "../Python-Tools/node_position.csv";
 
   // Open the file for writing
-  // std::ofstream outputFile(filePath);
+  std::ofstream outputFile(filePath);
 
-  // // Check if the file is successfully opened
-  // if (!outputFile.is_open()) {
-  //     std::cerr << "Error opening the file." << std::endl;
-  //     return 1;
-  // }
+  // Check if the file is successfully opened
+  if (!outputFile.is_open()) {
+      std::cerr << "Error opening the file." << std::endl;
+      return 1;
+  }
 
   // Obtain the position of node i+1 (ns3 counts from zero)
-  // for(int i = 0; i < numNodes; ++i)
-  // {
-  //   Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
-  //   if(mob==0)
-  //   {
-  //     std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
-  //     return 1;
-  //   }
-  //   double x = mob->GetPosition().x;
-  //   double y = mob->GetPosition().y;
-  //   double z = mob->GetPosition().z;
+  for(int i = 0; i < numNodes; ++i)
+  {
+    Ptr<MobilityModel> mob = c.Get(i)->GetObject<MobilityModel>();
+    if(mob==0)
+    {
+      std::cout << "No Object of class MobilityModel in node " << i+1 << "." << std::endl;
+      return 1;
+    }
+    double x = mob->GetPosition().x;
+    double y = mob->GetPosition().y;
+    double z = mob->GetPosition().z;
 
-  //   // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
+    // std::cout << "Position of node " << i+1 << " : " << "(" << x << ", " << y << ", " << z << " )" << std::endl;
 
-  //   // Write numbers to the file
-  //   outputFile << x << "," << y << std::endl;
-  // }
+    // Write numbers to the file
+    outputFile << x << "," << y << std::endl;
+  }
   
   // outputFile.close();
-  // std::cout << "Position have been saved to: " << filePath << std::endl;
+  std::cout << "Position have been saved to: " << filePath << std::endl;
 
   /*----------------------------------------------- */
   // Create Apps
   /*----------------------------------------------- */
-  // uint16_t sinkPort = 6; // use the same for all apps
+  uint16_t sinkPort = 6; // use the same for all apps
 
   // the vector for picking the transmitter and receiver
   unsigned seed = 1;
@@ -247,6 +241,10 @@ int main (int argc, char *argv[])
   std::shuffle(vec.begin(), vec.end(), std::default_random_engine(seed)); // shuffle the vector elements
   
   // Generate numFlow flows (pick nodes in order, according to vec)
+  double clientStartTime = 0.0;
+  double clientEndTime = 0.0;
+  double LO = 10.0;
+  double HI = 80.0;
   for(int i = 0; i < numFlows ; ++i)
   {
     // Address sinkAddress (InetSocketAddress (ifcont.GetAddress (vec[i*2]), sinkPort)); // interface of node vec[i*2]
@@ -254,12 +252,14 @@ int main (int argc, char *argv[])
     // ApplicationContainer sinkApps = packetSinkHelper1.Install (c.Get (vec[i*2])); // node vec[i*2] as sink
     // sinkApps.Start (Seconds (0.0));
     // sinkApps.Stop (Seconds (100.0));
+    clientStartTime = LO + static_cast <double> (rand()) /( static_cast <double> (RAND_MAX/(HI-LO)));
+    clientEndTime = clientStartTime + static_cast <double> (rand()) /( static_cast <double> (RAND_MAX/(HI-clientStartTime)));
+    NS_LOG_DEBUG("Client : " << clientStartTime << " ~ " << clientEndTime);
 
-    
-    UdpServerHelper serverHelper(12345); 
+    UdpServerHelper serverHelper(sinkPort); 
     ApplicationContainer serverApp = serverHelper.Install(c.Get (vec[i*2]));
     serverApp.Start(Seconds(0.0));
-    serverApp.Stop(Seconds(100.0));  
+    serverApp.Stop(Seconds(simulationTime));  
 
     // Ptr<Socket> ns3UdpSocket = Socket::CreateSocket (c.Get (vec[i*2+1]), UdpSocketFactory::GetTypeId ()); //source at node vec[i*2+1]
 
@@ -278,15 +278,15 @@ int main (int argc, char *argv[])
     // clientHelper.SetAttribute ("OffTime", StringValue ("ns3::UniformRandomVariable[Min=0.|Max=10.]"));
     // clientHelper.SetAttribute("Remote", AddressValue (sinkAddress));
 
-    UdpClientHelper clientHelper( ifcont.GetAddress (vec[i*2]) , 12345);
+    UdpClientHelper clientHelper( ifcont.GetAddress (vec[i*2]) , sinkPort);
     NS_LOG_UNCOND("sinkAddress : " << ifcont.GetAddress (vec[i*2]));
     clientHelper.SetAttribute("MaxPackets", UintegerValue(1000));
     clientHelper.SetAttribute("Interval", TimeValue(Time("0.1"))); //packets/s
     clientHelper.SetAttribute("PacketSize", UintegerValue(1472));
 
     ApplicationContainer clientApps = clientHelper.Install(c.Get (vec[i*2+1]));
-    clientApps.Start(Seconds(10.0));
-    clientApps.Stop(Seconds(100.0));
+    clientApps.Start(Seconds(clientStartTime));
+    clientApps.Stop(Seconds(clientEndTime));
   }
   /*----------------------------------------------- */
 
@@ -296,7 +296,7 @@ int main (int argc, char *argv[])
 
   // wifiPhy.EnablePcap ("lab-4-solved", devices);
  
-  Simulator::Stop (Seconds (100.0));
+  Simulator::Stop (Seconds (simulationTime));
   Simulator::Run ();
 
   // Show Statistic Information
