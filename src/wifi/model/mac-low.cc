@@ -2351,6 +2351,7 @@ MacLow::SendRxBusyTone(void) //Blue
             }
         }
     }
+    NS_LOG_DEBUG("Duration of the Rx Busy tone : " << duration); // Jonathan
     m_currentHdr.SetDuration(duration+NanoSeconds(680000.0)); //Blue
 
     if (!m_ampdu)

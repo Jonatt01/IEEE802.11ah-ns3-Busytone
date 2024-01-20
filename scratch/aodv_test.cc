@@ -63,7 +63,7 @@ int main (int argc, char *argv[])
   uint32_t numFlows = 3;  // must smaller than numNodes/2
   std::string rtslimit = "0";  //(Default = 1000000)
   double simulationTime = 100.0;
-  bool printRoutingTables = false;
+  bool printRoutingTables = true;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -103,7 +103,7 @@ int main (int argc, char *argv[])
 	rxbt_Phy.Set("CcaMode1Threshold", DoubleValue(-82.0));
 	rxbt_Phy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
 	rxbt_Phy.Set("TxPowerEnd", DoubleValue(19.0309));
-	rxbt_Phy.Set("TxPowerStart", DoubleValue(19.0309));
+	rxbt_Phy.Set("TxPowerStart", DoubleValue(19.0309)); // TxPowerStart default = 16.0206
 	rxbt_Phy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
 
@@ -165,7 +165,7 @@ int main (int argc, char *argv[])
 	mobility.SetPositionAllocator(positionAlloc);
   /*----------------------------------------------- */
 
-  mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
+  // mobility.SetMobilityModel ("ns3::ConstantPositionMobilityModel");
   mobility.Install (c);
 
   // Enable Routing Protocol (AODV/DSDV)
