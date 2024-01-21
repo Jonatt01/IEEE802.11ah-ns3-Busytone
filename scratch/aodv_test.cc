@@ -30,6 +30,7 @@
 #include "ns3/random-variable-stream.h"
 
 #include <iostream>
+#include <cstdlib>
 #include <fstream>
 #include <vector>
 #include <string>
@@ -55,7 +56,7 @@ int main (int argc, char *argv[])
 
   // std::string phyMode ("DsssRate1Mbps");
   std::string phyMode ("OfdmRate1_2MbpsBW1MHz");
-  double sideLength = 500.0;  //(m)
+  double sideLength = 100.0;  //(m)
   uint32_t numNodes = 25;  // 5x5
   double interval = 0.01; // seconds(Default = 0.001)
   uint32_t packetSize = 500; // bytes(Default = 600)
@@ -63,7 +64,7 @@ int main (int argc, char *argv[])
   uint32_t numFlows = 3;  // must smaller than numNodes/2
   std::string rtslimit = "0";  //(Default = 1000000)
   double simulationTime = 100.0;
-  bool printRoutingTables = true;
+  bool printRoutingTables = false;
   CommandLine cmd;
 
   cmd.AddValue ("phyMode", "Wifi Phy mode", phyMode);
@@ -94,8 +95,8 @@ int main (int argc, char *argv[])
   // error cause from these setting (if no set, routing table correct, segmentation fault; if set, routing table no use, rx packet=0)
   wifiPhy.SetErrorRateModel("ns3::YansErrorRateModel");  
   wifiPhy.Set("CcaMode1Threshold", DoubleValue(-82.0));
-	// wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
-  wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-999.0));
+	wifiPhy.Set("EnergyDetectionThreshold", DoubleValue(-79.0));
+  NS_LOG_DEBUG("Energy detection threshold : " << "-79.0");
 	wifiPhy.Set("S1g1MfieldEnabled", BooleanValue(true));
 
   YansWifiPhyHelper rxbt_Phy =  YansWifiPhyHelper::Default ();
@@ -297,128 +298,70 @@ int main (int argc, char *argv[])
   Simulator::Run ();
 
   // Show Statistic Information
-  double Avg_e2eDelaySec1 = 0.0;
-  double Avg_SystemThroughput_bps1 = 0.0;
-  double Avg_PDR1 = 0.0;
-  double Avg_Packet_Loss_rate1 = 0.0;
+  double *ptr_Avg_e2eDelaySec = (double *) malloc(sizeof(double) * numFlows);
+  double *ptr_Avg_SystemThroughput_bps = (double *) malloc(sizeof(double) * numFlows);
+  double *ptr_Avg_PDR = (double *) malloc(sizeof(double) * numFlows);
+  double *ptr_Avg_Packet_Loss_rate = (double *) malloc(sizeof(double) * numFlows);
 
-  double Avg_e2eDelaySec2 = 0.0;
-  double Avg_SystemThroughput_bps2 = 0.0;
-  double Avg_PDR2 = 0.0;
-  double Avg_Packet_Loss_rate2 = 0.0;
+  int *ptr_tx_packets = (int *) malloc(sizeof(int) * numFlows);
+  int *ptr_rx_packets = (int *) malloc(sizeof(int) * numFlows); 
 
-  int tx_packets1 = 0;
-  int rx_packets1 = 0;
-  int tx_packets2 = 0;
-  int rx_packets2 = 0;
-
-  int Avg_Base1 = 0;
-  int Avg_Base2 = 0;
+  int *ptr_Avg_Base = (int *) malloc(sizeof(int) * numFlows); 
 
   // Print per flow statistics
   monitor->CheckForLostPackets ();
   Ptr<Ipv4FlowClassifier> classifier = DynamicCast<Ipv4FlowClassifier> (flowmon.GetClassifier ());
   std::map<FlowId, FlowMonitor::FlowStats> stats = monitor->GetFlowStats (); // access the private attribute m_flowStats in instance of class FlowMonitor
-
-  for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator iter = stats.begin (); iter != stats.end (); ++iter)
+  for(int i=0 ; i< numFlows ; i++)
+  {
+    for (std::map<FlowId, FlowMonitor::FlowStats>::const_iterator iter = stats.begin (); iter != stats.end (); ++iter)
     {
-	  Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow (iter->first);
+      Ipv4FlowClassifier::FiveTuple t = classifier->FindFlow (iter->first);
 
-      // Print per flow statistics
-      /*implement flow monitor */
-      /*----------------------------------------------- */
-      //your code
-      //需先判斷source address跟destination addresses是否為我們需要的
-      //Ex:if(t.sourceAddress == Ipv4Address("??.?.?.?.?") && t.destinationAddress == Ipv4Address("??.?.?.??"))
-      /*----------------------------------------------- */
-
-    if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[1],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[0],0) ) ){
-      // if( t.destinationPort == sinkPort ){
-        Avg_e2eDelaySec1 += 
+      if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[2*i+1],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[2*i],0) ) )
+      {
+        ptr_Avg_e2eDelaySec[i] += 
           (
             (double)iter -> second.delaySum.GetSeconds()/iter -> second.rxPackets
           );
 
-        Avg_SystemThroughput_bps1 +=
+        ptr_Avg_SystemThroughput_bps[i] +=
           ( 
             (double)iter -> second.rxBytes*8/(iter -> second.timeLastRxPacket.GetSeconds() - iter -> second.timeFirstTxPacket.GetSeconds())
           );
 
-        Avg_PDR1 = (double)iter -> second.rxPackets / iter -> second.txPackets;
-        tx_packets1 = iter -> second.txPackets;
-        rx_packets1 = iter -> second.rxPackets;
-        Avg_Packet_Loss_rate1 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
-        Avg_Base1 += 1;
-      // }
+        ptr_Avg_PDR[i] = (double)iter -> second.rxPackets / iter -> second.txPackets;
+        ptr_tx_packets[i] = iter -> second.txPackets;
+        ptr_rx_packets[i] = iter -> second.rxPackets;
+        ptr_Avg_Packet_Loss_rate[i] = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
+        ptr_Avg_Base[i] += 1;
+      }
     }
-    else if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[3],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[2],0) ) ){
-      // if( t.destinationPort == sinkPort ){
-        Avg_e2eDelaySec2 += 
-          (
-            (double)iter -> second.delaySum.GetSeconds()/iter -> second.rxPackets
-          );
-
-        Avg_SystemThroughput_bps2 +=
-          ( 
-            (double)iter -> second.rxBytes*8/(iter -> second.timeLastRxPacket.GetSeconds() - iter -> second.timeFirstTxPacket.GetSeconds())
-          );
-
-        Avg_PDR2 = (double)iter -> second.rxPackets / iter -> second.txPackets;
-
-        tx_packets2 = iter -> second.txPackets;
-        rx_packets2 = iter -> second.rxPackets;
-        Avg_Packet_Loss_rate2 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
-        Avg_Base2 += 1;
-      // }
-    }
-    // else if (t.sourceAddress == Ipv4Address(ifcont.GetAddress(vec[5],0) ) && t.destinationAddress == Ipv4Address(ifcont.GetAddress(vec[4],0) ) ){
-    //   // if( t.destinationPort == sinkPort ){
-    //     Avg_e2eDelaySec2 += 
-    //       (
-    //         (double)iter -> second.delaySum.GetSeconds()/iter -> second.rxPackets
-    //       );
-
-    //     Avg_SystemThroughput_bps2 +=
-    //       ( 
-    //         (double)iter -> second.rxBytes*8/(iter -> second.timeLastRxPacket.GetSeconds() - iter -> second.timeFirstTxPacket.GetSeconds())
-    //       );
-
-    //     Avg_PDR2 = (double)iter -> second.rxPackets / iter -> second.txPackets;
-
-    //     tx_packets2 = iter -> second.txPackets;
-    //     rx_packets2 = iter -> second.rxPackets;
-    //     Avg_Packet_Loss_rate2 = (double) (iter->second.txPackets - iter->second.rxPackets)*100 / (double) iter->second.txPackets;
-    //     Avg_Base2 += 1;
-    //   // }
-    // }
   }
 
-  std::cout << "---------------------------Flow 1 statistic result---------------------------" << std::endl;
-  std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[1],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[0],0)) << std::endl;
-  std::cout << "Tx packets : " << tx_packets1 << std::endl;
-  std::cout << "Rx packets : " << rx_packets1 << std::endl;
-  std::cout << "Avg_PDR : " << Avg_PDR1 << std::endl;  
-  std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps1/(Avg_Base1*1024) << " [Kbps]" << std::endl;
-  std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec1/Avg_Base1 << " [Sec]" << std::endl;
-  std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate1 << " % " << std::endl;
-
-  // if (Avg_Base2 != 0){
-    std::cout << "---------------------------Flow 2 statistic result---------------------------" << std::endl;
-    std::cout << "Flow ID 1 Src Addr " << Ipv4Address(ifcont.GetAddress(vec[3],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[2],0)) << std::endl;
-    std::cout << "Tx packets : " << tx_packets2 << std::endl;
-    std::cout << "Rx packets : " << rx_packets2 << std::endl;
-    std::cout << "Avg_PDR : " << Avg_PDR2 << std::endl;  
-    std::cout << "Avg_SystemThroughput : " << Avg_SystemThroughput_bps2/(Avg_Base2*1024) << " [Kbps]" << std::endl;
-    std::cout << "Avg_e2eDelay : " << Avg_e2eDelaySec2/Avg_Base2 << " [Sec]" << std::endl;
-    std::cout << "Packet loss ratio : " << Avg_Packet_Loss_rate2 << " % " << std::endl;
-  // }
-  
-
+  for(int i=0 ; i<numFlows ; ++i)
+  {
+    NS_LOG_UNCOND("---------------------------Flow "<< i+1 <<" statistic result---------------------------");
+    NS_LOG_UNCOND("Src Addr " << Ipv4Address(ifcont.GetAddress(vec[2*i+1],0)) << " " << "Dest Addr " << Ipv4Address(ifcont.GetAddress(vec[2*i],0)));
+    NS_LOG_UNCOND("Tx packets : " << ptr_tx_packets[i]);
+    NS_LOG_UNCOND("Rx packets : " << ptr_rx_packets[i]);
+    NS_LOG_UNCOND("Avg_PDR : " << ptr_Avg_PDR[i]);
+    NS_LOG_UNCOND("Avg_SystemThroughput : " << ptr_Avg_SystemThroughput_bps[i]/(ptr_Avg_Base[i]*1024) << " [Kbps]" );
+    NS_LOG_UNCOND("Avg_e2eDelay : " << ptr_Avg_e2eDelaySec[i]/ptr_Avg_Base[i] << " [Sec]");
+    NS_LOG_UNCOND("Packet loss ratio : " << ptr_Avg_Packet_Loss_rate[i] << " % ");
+  }
 
   monitor->SerializeToXmlFile("lab-5.flowmon", true, true);
+
+  free(ptr_Avg_e2eDelaySec);
+  free(ptr_Avg_Packet_Loss_rate);
+  free(ptr_Avg_PDR);
+  free(ptr_Avg_SystemThroughput_bps);
+  free(ptr_tx_packets);
+  free(ptr_rx_packets);
+  free(ptr_Avg_Base);
 
   Simulator::Destroy ();
 
   return 0;
 }
-
